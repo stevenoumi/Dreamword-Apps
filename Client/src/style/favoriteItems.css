@@ -1,0 +1,51 @@
+.Favorite-item {
+  padding: 10px;
+  border: solid 1px gray;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.Favorite-item-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.Favorite-item-title {
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: flex;
+  margin-left: 8% !important;
+  margin-right: 4% !important;
+}
+
+.Favorite-item-price {
+  align-self: center !important;
+  justify-content: center !important;
+  text-align: flex;
+  font-weight: bold !important;
+  margin-left: 8% !important;
+  margin-right: 4% !important;
+}
+.Favorite-item-infos {
+  align-self: center !important;
+  justify-content: center !important;
+  text-align: flex;
+  font-weight: bold !important;
+  margin-left: 8% !important;
+}
+
+.Favorite-item-delete-button {
+  align-self: center !important;
+  justify-content: center !important;
+  font-weight: bold !important;
+}
+.Favorite-item-change-quantity {
+  display: flex;
+  align-items: center;
+  border: 1px solid gray;
+  flex-grow: 1;
+  height: 25px;
+  border-radius: 10px;
+}
