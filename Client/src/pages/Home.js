@@ -1,10 +1,14 @@
-import '../style/App.css';
-import SignInSignUp from '../components/SignUp';
+import "../style/App.css";
+import Header from "../components/Header";
+import ShoppingList from "../components/ShoppingList";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
     <div>
-      <SignInSignUp/>
+      <Header />
+      <ShoppingList />
+      <Footer />
     </div>
   );
 }

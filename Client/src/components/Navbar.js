@@ -12,11 +12,11 @@ import { Avatar, Divider, Link, Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import CategoryIcon from "@mui/icons-material/Category";
 import PhoneIcon from "@mui/icons-material/Phone";
-import PeopleIcon from '@mui/icons-material/People';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import PeopleIcon from "@mui/icons-material/People";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import LightbulbIcon from '@mui/icons-material/Lightbulb';
-import HandshakeIcon from '@mui/icons-material/Handshake';
+import LightbulbIcon from "@mui/icons-material/Lightbulb";
+import HandshakeIcon from "@mui/icons-material/Handshake";
 import "../style/navbar.css";
 
 function NavBar({ toggleDrawerNavbar }) {
@@ -57,13 +57,12 @@ function NavBar({ toggleDrawerNavbar }) {
       link: "/joinus",
     },
   ];
-  
 
   const DrawerNavBarList = (
     <Box>
       <List>
         {NavBarItems.map((item) => (
-          <ListItem key={item.text} disablePadding sx={{ border: '1px' }}>
+          <ListItem key={item.text} disablePadding sx={{ border: "1px" }}>
             <ListItemButton component={Link} to={item.link}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
@@ -81,11 +80,11 @@ function NavBar({ toggleDrawerNavbar }) {
         <item>
           <Stack direction="row" className="nav-header">
             <item>
-            <Avatar
-                    alt="Remy Sharp"
-                    src="https://images.unsplash.com/photo-1597645587822-e99fa5d45d25"
-                    className="avatar"
-                  />
+              <Avatar
+                alt="Remy Sharp"
+                src="https://images.unsplash.com/photo-1597645587822-e99fa5d45d25"
+                className="avatar"
+              />
             </item>
             <item>
               <Typography variant="h6" component="div" className="title">
@@ -99,9 +98,7 @@ function NavBar({ toggleDrawerNavbar }) {
             </item>
           </Stack>
         </item>
-        <item  className='nav-list'>
-          {DrawerNavBarList}
-        </item>
+        <item className="nav-list">{DrawerNavBarList}</item>
         <item>
           <Stack direction="row" className="nav-footer">
             <item>
