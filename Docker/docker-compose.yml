@@ -11,7 +11,7 @@ services:
       MYSQL_PASSWORD: stevedarius
     volumes:
       - db_data:/var/lib/mysql
-
+      
   phpmyadmin:
     depends_on:
       - db
