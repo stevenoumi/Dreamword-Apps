@@ -17,19 +17,35 @@
     display: flex;
   }
   .signup-form h5 {
-    margin: 0;
+    margin-bottom: 5%;
     padding: 15px;
-    color: #333;
+    color: rgb(72, 210, 164) !important;
     text-align: center;
     font-family: 'Times New Roman';
     font-weight: bold;
     font-size: 40px;
   }
+  .login-button-container {
+    width: 100% !important;
+    margin: auto;
+    justify-content: center !important;
+    align-items: center ! important;
+    display: flex !important;
+  }
+  .login-button {
+    width: 50% !important;  
+    background-color: rgb(72, 210, 164) !important;
+    border-radius: 50px !important;
+    margin-top: 5% !important;
+  }
+  
+
+
   .signup-form button {
     width: 100%;
-    margin: 10px 0;
+    margin: 10px 10px;
     padding: 10px;
-    background-color: #333;
+    background-color: rgb(72, 210, 164);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -54,7 +70,7 @@
     font-family: 'Times New Roman';
     margin-bottom: 50px;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
   }
   .signup-right h6 {
     color: #333;
@@ -63,14 +79,16 @@
     margin-bottom: 50px;
     font-weight: bold;
     color: gray;
-  }
+  } 
   
-  .signup-right button {
+ .login-register-button {
     width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
+    margin: 10px 10px;
+    background-color: white !important;
+    color: black !important;
+    border-radius: 50px !important;
+    border: 1px solid #fff !important;
     cursor: pointer;
+    padding: 10px !important;
+
   }

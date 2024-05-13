@@ -1,41 +1,60 @@
-.signup-container {
+.signin-container {
   width: 100%;
   height: 100vh;
   display: flex;
   background-color: #f9f9f9;
 
 }
-.signup-form-container{
+.signin-form-container{
   width: 60% !important;
   margin: auto;
   justify-content: center;
   align-items: center;
   display: flex;
 }
-.signup-form {
-  width: 70%;
+.signin-form {
+  width: 70% !important;
   display: flex;
 }
-.signup-form h5 {
-  margin: 0;
+.signin-form h5 {
+  margin-bottom: 5%;
   padding: 15px;
-  color: #333;
+  color: rgb(72, 210, 164) !important;
   text-align: center;
   font-family: 'Times New Roman';
   font-weight: bold;
   font-size: 40px;
 }
-.signup-form button {
-  width: 100%;
-  margin: 10px 0;
+
+
+.login-button-container {
+  width: 100% !important;
+  margin: auto;
+  justify-content: center !important;
+  align-items: center ! important;
+  display: flex !important;
   padding: 10px;
-  background-color: #333;
+}
+.login-button {
+  width: 50% !important;  
+  background-color: rgb(72, 210, 164) !important;
+  border-radius: 50px !important;
+  margin-top: 2% !important;
+}
+
+
+
+.signin-form button {
+  width: 100%;
+  margin: 10px 10px;
+  padding: 10px;
+  background-color: rgb(72, 210, 164);
   color: #fff;
   border: none;
   cursor: pointer;
   
 }
-.signup-right-container {
+.signin-right-container {
   width: 40% !important;
   padding: auto;
   justify-content: center !important;
@@ -43,12 +62,12 @@
   background-color: aquamarine;
 }
 
-.signup-right {
+.signin-right {
   width: 60%;
   display: flex;
   margin: auto;
 }
-.signup-right h5 {
+.signin-right h5 {
   color: #333;
   text-align: center;
   font-family: 'Times New Roman';
@@ -56,21 +75,22 @@
   font-weight: bold;
   font-size: 40px;
 }
-.signup-right h6 {
+.signin-right h6 {
   color: #333;
   text-align: center;
   font-family: 'Times New Roman';
   margin-bottom: 50px;
   font-weight: bold;
   color: gray;
-}
+} 
 
-.signup-right button {
+.login-register-button {
   width: 100%;
-  margin: 10px 0;
+  margin: 10px 10px;
   padding: 10px;
-  background-color: #333;
-  color: #fff;
-  border: none;
+  background-color: white !important;
+  color: black !important;
+  border-radius: 50px !important;
+  border: 1px solid #fff !important;
   cursor: pointer;
 }
