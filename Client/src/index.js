@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Home from "./pages/Home";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ArticleDetails from "./pages/ArticleDetails";
 import Login from "./pages/Login";
@@ -10,6 +9,10 @@ import { CartProvider } from "./context/CartContext";
 import Favorite from "./pages/Favorite";
 import { FavoriteProvider } from "./context/FavoriteContext";
 import Contact from "./pages/Contact";
+import Profile from "./components/Profile";
+import Products from "./pages/Products";
+import Home from "./pages/Home";
+import CartPage from "./pages/CartPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,11 +21,14 @@ root.render(
       <FavoriteProvider>
         <Router>
           <Route exact path="/" component={Home} />
+          <Route exact path="/products" component={Products} />
           <Route path="/detail/:id" component={ArticleDetails} />
           <Route path="/favorites" component={Favorite} />
           <Route path="/contact" component={Contact} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/Cart" component={CartPage} />
         </Router>
       </FavoriteProvider>
     </CartProvider>

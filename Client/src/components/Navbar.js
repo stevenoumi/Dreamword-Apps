@@ -8,14 +8,13 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
-import { Avatar, Divider, Link, Stack } from "@mui/material";
+import {Divider, Link, Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import CategoryIcon from "@mui/icons-material/Category";
 import PhoneIcon from "@mui/icons-material/Phone";
 import PeopleIcon from "@mui/icons-material/People";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import "../style/navbar.css";
 
@@ -36,11 +35,7 @@ function NavBar({ toggleDrawerNavbar }) {
       icon: <FavoriteIcon />,
       link: "/favorites",
     },
-    {
-      text: "Blog",
-      icon: <LightbulbIcon />,
-      link: "/blog",
-    },
+    
     {
       text: "Contact",
       icon: <PhoneIcon />,
@@ -80,11 +75,12 @@ function NavBar({ toggleDrawerNavbar }) {
         <item>
           <Stack direction="row" className="nav-header">
             <item>
-              <Avatar
-                alt="Remy Sharp"
-                src="https://images.unsplash.com/photo-1597645587822-e99fa5d45d25"
-                className="avatar"
-              />
+             <cardMedia
+              component="img"
+              src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
+              alt="DreamWorld"   
+              className="nav-header-image"           
+            />
             </item>
             <item>
               <Typography variant="h6" component="div" className="title">

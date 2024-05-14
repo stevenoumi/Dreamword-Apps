@@ -2,6 +2,7 @@
   max-width: 345px;
   flex-direction: column;
   border-radius: 10px;
+  height: 100%;
 
 }
 .shoppingItems-image {

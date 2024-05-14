@@ -12,7 +12,7 @@ import "../style/header.css";
 import Drawer from "@mui/material/Drawer";
 import Cart from "./Cart";
 import NavBar from "./Navbar";
-import { Badge, Button, Grid, InputBase, Stack } from "@mui/material";
+import { Avatar, Badge, Button, Grid, InputBase, Stack } from "@mui/material";
 import { CartContext } from "../context/CartContext";
 import { FavoriteContext } from "../context/FavoriteContext";
 
@@ -95,6 +95,15 @@ function Header() {
                     </Badge>
                   </IconButton>
                 </item>
+                <item>
+                <Avatar
+                  alt="Remy Sharp"
+                  className="avatar"
+                  component={Link}
+                  to="/profile"
+                  src="profile.png"
+                />
+            </item>
               </Stack>
             </Grid>
           </Grid>

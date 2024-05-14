@@ -51,9 +51,9 @@
     color: gray !important;
 }
 
-.avatar {
-    width: 40px !important;
-    height: 40px !important;
+.nav-header-image {
+    width: 200px !important;
+    height: 200px !important;
     margin-right: 10px !important;
     margin-left: 15px !important;
 }
