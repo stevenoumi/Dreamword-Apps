@@ -42,7 +42,6 @@ function ShoppingItems({ item }) {
       <CardContent className="cardcontent-style">
         <Stack
           direction="row"
-          justifyContent="space-between"
           className="shoppingItems-infos"
         >
           <item>

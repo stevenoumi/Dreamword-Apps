@@ -4,8 +4,8 @@ import Footer from "../components/Footer";
 import Title from "../components/Title";
 import FavoriteList from "../components/FavoriteList";
 
-function CartPage() {
-  const title = "Mon Panier";
+function Orders() {
+  const title = "Mes Commandes";
   return (
     <div className="favorite-back">
       <Header />
@@ -16,4 +16,4 @@ function CartPage() {
   );
 }
 
-export default CartPage;
+export default Orders;

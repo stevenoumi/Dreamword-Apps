@@ -7,7 +7,7 @@ import FavoriteList from "../components/FavoriteList";
 function Favorite() {
   const title = "Mes Favoris";
   return (
-    <div>
+    <div className="favorite-back">
       <Header />
       <Title title={title} backgroundColor="black" textColor="#DCC097" />
       <FavoriteList />

@@ -1,36 +1,87 @@
 .profile-container {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 4px;
+  justify-content: flex-start;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #DCC097;
+  position: relative;
 }
 
-.profile-avatar-container {
-  width: 220px!important;
-  height: 220px!important;
+.cover-photo {
+  width: 100%;
+  height: 45vh !important;
+  background-image: url('../../public/lol.png');
+  background-position: center;
+  background-size: cover;
 }
+
+.back-button {
+  position: absolute;
+  top: 10%;
+  left: 3%;
+  background-color: #DCC097 !important;
+  color: black !important;
+}
+
+.edit-profile-button {
+  position: absolute;
+  top: 10%;
+  left: 40%;
+  background-color: #DCC097 !important;
+  color: black !important;
+}
+
+.edit-button:hover {
+  background-color: black !important;
+  color: #DCC097 !important;
+}
+
+.avatar-container {
+  position: absolute;
+  top: 30vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.profile-avatar-container {
+  width: 220px !important;
+  height: 220px !important;
+}
+
 .profile-avatar {
   width: 100% !important;
   height: 100% !important;
 }
+
+.profile-info {
+  text-align: center;
+  margin-top: 15vh !important;
+
+}
+
 .profile-title {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .profile-text {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .profile-stack {
   margin-top: 20px;
   display: flex;
+  justify-content: center;
 }
 
 .profile-card {
-  width: 200px;
+  width: 25vh !important;
   text-align: center;
-  justify-content: space-between;
+  justify-content: center;
+  background-color: #DCC097 !important;
 }
 
 .profile-icon {
@@ -38,31 +89,5 @@
 }
 
 .profile-card-text {
-  margin-top: 5px;
+  margin-top: 10px;
 }
-.profile-container {
-  position: relative;
-}
-.profile-info {
-  text-align: center;
-  margin-top: 12%;
-  
-}
-
-.cover-photo {
-  height: 40vh;
-  width: 100%;
-   /*background-image: url('https://example.com/cover-image.jpg'); /* Remplace l'URL par l'image de couverture */
-  background-size: cover;
-  background-position: center;
-  border-radius: 10;
-  background-color: blueviolet;
-}
-
-.avatar-container {
-  position: absolute;
-  top: 30vh; 
-  left: 50%;
-  transform: translateX(-50%);
-}
-

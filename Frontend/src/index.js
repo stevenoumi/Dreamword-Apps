@@ -13,6 +13,7 @@ import Profile from "./components/Profile";
 import Products from "./pages/Products";
 import Home from "./pages/Home";
 import CartPage from "./pages/CartPage";
+import Orders from "./pages/Orders";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -29,6 +30,7 @@ root.render(
           <Route path="/register" component={Register} />
           <Route path="/profile" component={Profile} />
           <Route path="/Cart" component={CartPage} />
+          <Route path="/orders" component={Orders} />
         </Router>
       </FavoriteProvider>
     </CartProvider>

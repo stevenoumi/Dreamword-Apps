@@ -47,15 +47,16 @@
 .shoppingItems-infos {
   flex-direction: row !important;
   font-family: 'comfortaa' !important;
+  justify-content: space-between !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
 }
 .shoppingItems-description {
   color: black !important;
   font-family: 'comfortaa' !important;
   font-size: 15px !important;
-  ;
 }
 
-/* hover effect */
 
 .shoppingItems-image:hover {
   transition: 0.3s !important;

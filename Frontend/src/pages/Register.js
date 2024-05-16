@@ -1,149 +1,116 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { TextField, Button, Stack, Typography } from "@mui/material";
+import axios from 'axios';
 import "../style/register.css";
 import Header from "../components/Header";
 
-function register() {
+function Register() {
+  const [formData, setFormData] = useState({
+    name: '',
+    firstname: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    address: '',
+    phoneNum: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:5000/register', formData);
+      alert(response.data);
+    } catch (error) {
+      console.error(error);
+      alert('Error registering user');
+    }
+  };
+
   return (
     <>
       <Header />
       <Stack spacing={2} direction="row" className="register-container">
-        <item className="register-form-container">
-          <Stack direction="column" spacing={2} className="register-form">
-            <Typography variant="h5">
-              {" "}
-              Welcome back dear DreamWorld Lovers !{" "}
-            </Typography>
-            <Typography variant="h6" className="register-form-body">
-              {" "}
-              Connectez-vous pour profiter d'une expérience unique avec des
-              Burgers encore plus délicieux !{" "}
-            </Typography>
-            <Stack direction="row" spacing={2}>
-              <Button
-                variant="contained"
-                component={Link}
-                to="/"
-                className="register-login-button"
-              >
-                Se connecter
+        <div className="register-form-container">
+          <form onSubmit={handleSubmit}>
+            <Stack direction="column" spacing={2} className="register-form">
+              <Typography variant="h5">
+                Welcome back dear DreamWorld Lovers!
+              </Typography>
+              <Typography variant="h6" className="register-form-body">
+                Connectez-vous pour profiter d'une expérience unique avec des
+                Burgers encore plus délicieux!
+              </Typography>
+              <TextField
+                label="Nom"
+                name="name"
+                variant="outlined"
+                value={formData.name}
+                onChange={handleChange}
+                className="text-field-register"
+              />
+              <TextField
+                label="Prenom"
+                name="firstname"
+                variant="outlined"
+                value={formData.firstname}
+                onChange={handleChange}
+                className="text-field-register"
+              />
+              <TextField
+                label="Email"
+                name="email"
+                variant="outlined"
+                value={formData.email}
+                onChange={handleChange}
+                className="text-field-register"
+              />
+              <TextField
+                label="Portable"
+                name="phoneNum"
+                variant="outlined"
+                value={formData.phoneNum}
+                onChange={handleChange}
+                className="text-field-register"
+              />
+              <TextField
+                label="Mot de passe"
+                type="password"
+                name="password"
+                variant="outlined"
+                value={formData.password}
+                onChange={handleChange}
+                className="text-field-register"
+              />
+              <TextField
+                label="Confirmation du mot de passe"
+                type="password"
+                name="confirmPassword"
+                variant="outlined"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                className="text-field-register"
+              />
+              <Button type="submit" variant="contained" className="register-button-submit">
+                S'inscrire
               </Button>
             </Stack>
-          </Stack>
-        </item>
-        <item className="register-right-container">
-          <Stack direction="column" spacing={1} className="register-right">
-            <item>
-              <Typography variant="h5" className="register-right-h5">
-                {" "}
-                Creez votre compte{" "}
-              </Typography>
-            </item>
-            <item>
-              <Stack direction="row" spacing={2}>
-                <item>
-                  <Stack direction="column">
-                    <Typography variant="body" className="register-right-body">
-                      {" "}
-                      Nom :{" "}
-                    </Typography>
-                    <TextField
-                      id="outlined-basic"
-                      label="Entrez votre nom ..."
-                      variant="outlined"
-                      className="text-field-register"
-                    />
-                  </Stack>
-                </item>
-                <item>
-                  <Stack direction="column">
-                    <Typography variant="body" className="register-right-body">
-                      {" "}
-                      Prenom :{" "}
-                    </Typography>
-                    <TextField
-                      id="outlined-basic"
-                      label="Entrez votre prenom ..."
-                      variant="outlined"
-                      className="text-field-register"
-                    />
-                  </Stack>
-                </item>
-              </Stack>
-            </item>
-            <item>
-              <Stack direction="row" spacing={2}>
-                <item>
-                  <Stack direction="column">
-                    <Typography variant="body" className="register-right-body">
-                      {" "}
-                      Email :{" "}
-                    </Typography>
-                    <TextField
-                      id="outlined-basic"
-                      label="Entrez votre Email ..."
-                      variant="outlined"
-                      className="text-field-register"
-                    />
-                  </Stack>
-                </item>
-                <item>
-                  <Stack direction="column" >
-                    <Typography variant="body" className="register-right-body">
-                      {" "}
-                      Portable :{" "}
-                    </Typography>
-                    <TextField
-                      id="outlined-basic"
-                      label="Entrez votre portable ..."
-                      variant="outlined"
-                      className="text-field-register"
-                    />
-                  </Stack>
-                </item>
-              </Stack>
-            </item>
-            <item>
-              <Typography variant="body" className="register-right-body">
-                {" "}
-                Mot de passe :{" "}
-              </Typography>
-              <TextField
-                id="outlined-basic"
-                label="Entrez votre Email ..."
-                variant="outlined"
-                className="text-field-register"
-              />
-            </item>
-            <item>
-              <Typography variant="body" className="register-right-body">
-                {" "}
-                Confirmation du mot de passe :{" "}
-              </Typography>
-              <TextField
-                id="outlined-basic"
-                label="Entrez votre mot de passe ..."
-                variant="outlined"
-                className="text-field-register"
-              />
-            </item>
-            <item>
-              <Stack
-                direction="row"
-                spacing={2}
-                className="register-button-container"
-              >
-                <Button variant="contained" className="register-button-submit">
-                  s'inscrire
-                </Button>
-              </Stack>
-            </item>
-          </Stack>
-        </item>
+          </form>
+        </div>
       </Stack>
     </>
   );
 }
 
-export default register;
+export default Register;

@@ -19,9 +19,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 2px solid rgba(240, 240, 165, 0.89) !important;
+  border-bottom: 2px solid #DCC097 !important;
   background-color: black !important;
-  color: rgba(240, 240, 165, 0.89) !important;
+  color: #DCC097 !important;
 }
 
 
@@ -48,14 +48,14 @@
 }
 
 .cart-validation-button {
-  background-color:rgba(240, 240, 165, 0.89) !important;
+  background-color:#DCC097 !important;
   color: black !important;
   padding: 10px  !important; 
   width: 90%;
 }
 .cart-wach-card-button {
   color: black !important;
-  background-color: white !important;
+  background-color: rgb(211, 211, 206) !important;
   padding: 10px!important; 
   border: 2px solid black !important;
   cursor: pointer;
