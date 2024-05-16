@@ -1,0 +1,76 @@
+.shoppingItems-container {
+  max-width: 345px;
+  flex-direction: column;
+  border-radius: 10px;
+  height: 100%;
+  background-color:  #DCC097 !important;
+  transition: 0.3s !important;
+}
+
+.shoppingItems-container:hover {
+  transform: scale(1.02);
+  box-shadow: 2px 1px 5px rgba(255, 255, 255, 0.3) !important;
+}
+
+.shoppingItems-image {
+  width: 100% !important;
+  height: 300px !important;
+}
+
+.shoppingItems-add-to-cart {
+  color: black !important;
+  margin-left: 8px !important;
+  justify-content: center !important;
+
+}
+.shoppingItems-add-to-cart:hover {
+  transform: rotate(300deg);
+  zoom: 1.2;
+  background-color: gray !important;
+  
+}
+
+.shoppingItems-price {
+  color: black !important;
+  text-align: end;
+  font-family: cursive !important;
+  font-size: 25px !important;
+  font-weight: bold !important;
+}
+.shoppingItems-title {
+  color: black !important;
+  font-family: cursive !important;
+  font-size: 25px !important;
+  font-weight: bold !important;
+} 
+
+.shoppingItems-infos {
+  flex-direction: row !important;
+  font-family: 'comfortaa' !important;
+}
+.shoppingItems-description {
+  color: black !important;
+  font-family: 'comfortaa' !important;
+  font-size: 15px !important;
+  ;
+}
+
+/* hover effect */
+
+.shoppingItems-image:hover {
+  transition: 0.3s !important;
+  
+}
+.cardcontent-style{
+  color: black !important;
+  font-family: 'comfortaa' !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  padding: 5px !important;
+}
+.cardaction-style{
+  display: flex !important;
+  justify-content: start !important;
+  padding: 2px !important;
+}   

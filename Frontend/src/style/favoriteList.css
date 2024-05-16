@@ -1,0 +1,16 @@
+.favorite-list {
+    padding: 10px;
+    justify-content: space-between;
+    margin-bottom: 37% !important;
+    background-color:  black!important;
+    height: 100vh;
+    background-color: rgba(0, 0, 0,0.8);  
+  }
+
+.favorite-button {
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  align-self: center !important;
+}
+

@@ -1,0 +1,13 @@
+.cartlist-list {
+  justify-content: space-between;
+  margin-bottom: 37% !important;
+}
+
+.cartlist-list-container {
+  height: 100%;
+  width: 50%;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  ;
+}

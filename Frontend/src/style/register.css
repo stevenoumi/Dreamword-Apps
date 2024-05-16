@@ -1,0 +1,123 @@
+
+.register-container {
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  background-image: url('../../public/img.png');
+  background-position: center;
+  background-size: 70%;
+  background-color: rgba(0, 0, 0,0.4);
+  background-blend-mode: darken; 
+
+}
+  .register-form-container{
+    width: 28% !important;
+    display: flex;
+    margin-left: 5% !important;
+    margin-right: 20% !important;
+    margin-top: 15% !important;
+    margin-bottom: 5% !important;
+
+  }
+  .register-image {
+    width: 100%;
+    height: 100% !important;
+    display: flex;
+  }
+  .register-form h5 {
+    color: black!important;
+    text-align: left;
+    font-family: 'Times New Roman'!important;
+    font-weight: bold;
+    font-size: 40px;
+    color: #DCC097 !important;
+  }
+  .register-form-body {
+    font-family: "Times New Roman" !important;
+    margin-top: 10% !important;
+    color: white !important;
+    text-align: left;
+  }
+  .register-button-container {
+    width: 100% !important;
+    margin: auto;
+    justify-content: center !important;
+    align-items: center ! important;
+    display: flex !important;
+  }
+  .register-button-submit {
+    width: 80% !important;  
+    margin-top: 5% !important;
+    border-radius: 20px !important;
+    color: #DCC097 !important;
+  }
+  
+
+
+  .register-right button {
+    width: 100%;
+    padding: 10px !important;
+    background-color:black!important;
+    margin-top: 3% !important;
+    color: #fff;
+    border: none;
+    cursor: pointer;    
+  }
+  .register-right-container {
+    width: 35% !important;
+    height: 70vh !important;
+    margin-top: 8% !important;
+    margin-bottom: 10% !important;
+    margin-right: 3% !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-left: 8% !important;
+    justify-content: center !important;
+    align-items: center ! important;
+    display: flex;
+    align-items: center !important;
+    background-color: #DCC097;
+  }
+  
+  .register-right {
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: center !important;
+    
+  }
+  .register-right h5 {
+    color: black;
+    text-align: center !important;
+    font-family: 'Times New Roman';
+    margin-bottom: 5% !important;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .register-right-body {
+    font-family: "Times New Roman" !important;
+    
+    
+  }
+  
+ .register-login-button {
+    width: 60% !important;  
+    background-color:white !important;
+    border-radius: 50px !important;
+    margin-top: 10% !important;
+    color: black !important;
+    border: #fff !important;
+    padding: 8px !important; 
+    background-color: #DCC097 !important;
+
+  }
+
+  .text-field-register {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;  
+  } 
+  

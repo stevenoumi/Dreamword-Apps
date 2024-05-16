@@ -1,0 +1,76 @@
+.cart-container {
+  width: 500px;
+  display: flex;
+  padding-top: 3%;
+  position: relative;
+  overflow-x: hidden;
+  background-size : cover;
+  background-color: black !important;
+  height: 100vh;
+}
+
+.cart-container::-webkit-scrollbar {
+  display: none;
+}
+
+.cart-header {
+  width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 2px solid rgba(240, 240, 165, 0.89) !important;
+  background-color: black !important;
+  color: rgba(240, 240, 165, 0.89) !important;
+}
+
+
+.cart-footer {
+    text-align: center;
+    flex-grow: 1;
+    background-color: white;
+    width: 100% !important;
+    top: auto !important;
+    bottom: 0 !important;
+    padding-bottom: 15px !important;
+    max-width: 500px;
+    border-top: 1px solid black;
+    background-color: black !important;
+}
+
+.cart-list {
+  padding-top: 12% !important;
+  padding: 10px;
+  justify-content: space-between;
+  margin-bottom: 37vh !important;
+  background-color: black !important;
+  height: 100vh;
+}
+
+.cart-validation-button {
+  background-color:rgba(240, 240, 165, 0.89) !important;
+  color: black !important;
+  padding: 10px  !important; 
+  width: 90%;
+}
+.cart-wach-card-button {
+  color: black !important;
+  background-color: white !important;
+  padding: 10px!important; 
+  border: 2px solid black !important;
+  cursor: pointer;
+  width: 90%;
+}
+.cart-total {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  justify-content: space-between !important;
+
+}
+.cart-appbar {
+  width: 100% !important;
+  top: auto !important;
+  bottom: 0 !important;
+  max-width: 500px;
+}

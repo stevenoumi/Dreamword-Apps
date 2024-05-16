@@ -1,0 +1,38 @@
+.nav-container {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+    height: 100vh;
+  }
+  
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #DCC097;
+    border-bottom: 1px solid gray;
+  }
+  
+  
+  .nav-footer {
+      justify-content: center !important;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      background-color: #DCC097;
+
+  }
+  
+  .nav-list {
+    height: 600px;
+    border-bottom: 1px solid gray;
+    background-color: black;
+    color: #DCC097;
+
+  
+  }
+  
+  .icone-color {
+    color: #DCC097 !important;
+  }

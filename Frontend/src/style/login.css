@@ -1,0 +1,128 @@
+
+.login-container {
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  background-image: url('../../public/img.png');
+  background-position: center;
+  background-size: 70%;
+  background-color: rgba(0, 0, 0,0.4);
+  background-blend-mode: darken; 
+
+}
+  .login-form-container{
+    width: 30% !important;
+    display: flex;
+    margin-left: 5% !important;
+    margin-right: 20% !important;
+    margin-top: 15% !important;
+    margin-bottom: 5% !important;
+
+  }
+  .login-image {
+    width: 100%;
+    height: 100% !important;
+    display: flex;
+  }
+  .login-form h5 {
+    color: black!important;
+    text-align: left;
+    font-family: 'Times New Roman'!important;
+    font-weight: bold;
+    font-size: 40px;
+    color: #DCC097 !important;
+  }
+  .login-form-body {
+    font-family: "Times New Roman" !important;
+    margin-top: 10% !important;
+    color: white !important;
+    text-align: left;
+  }
+  .login-button-container {
+    width: 100% !important;
+    margin: auto;
+    justify-content: center !important;
+    align-items: center ! important;
+    display: flex !important;
+  }
+  .login-button-submit {
+    width: 80% !important;  
+    margin-top: 5% !important;
+    border-radius: 20px !important;
+    color: #DCC097 !important;
+  }
+  
+
+
+  .login-right button {
+    width: 100%;
+    margin: 10px 10px;
+    padding: 10px;
+    background-color:black!important;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    
+  }
+  .login-right-container {
+    width: 40% !important;
+    height: 70vh !important;
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
+    margin-right: 3% !important;
+    margin-left: 8% !important;
+    justify-content: center !important;
+    align-items: center ! important;
+    display: flex;
+    align-items: center !important;
+    background-color: #DCC097;
+  }
+  
+  .login-right {
+    width: 60%;
+    display: flex;
+    margin: auto;
+    justify-content: center !important;
+    
+  }
+  .login-right h5 {
+    color: black;
+    text-align: center !important;
+    font-family: 'Times New Roman';
+    margin-bottom: 5% !important;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .login-right h6 {
+    color: #333;
+    text-align: center;
+    font-family: 'Times New Roman';
+    margin-bottom: 50px;
+    font-weight: bold;
+  } 
+
+  .login-right-body {
+    font-family: "Times New Roman" !important;
+    
+    
+  }
+  
+ .register-button {
+    width: 60% !important;  
+    background-color:white !important;
+    border-radius: 50px !important;
+    margin-top: 10% !important;
+    color: black !important;
+    border: #fff !important;
+    background-color: #DCC097 !important;
+
+  }
+
+  .text-field-register {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;  
+  } 
+  
