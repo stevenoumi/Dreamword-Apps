@@ -63,6 +63,11 @@
     border: none;
     cursor: pointer;    
   }
+  .register-right button:hover {
+    color: whitesmoke !important;
+    box-shadow: 0 0 10px white !important;
+    border: solid 2px black !important;
+  }
   .register-right-container {
     width: 35% !important;
     height: 70vh !important;
@@ -111,6 +116,12 @@
     padding: 8px !important; 
     background-color: #DCC097 !important;
 
+  }
+
+  .register-login-button:hover {
+    background-color: black !important;
+    color: #DCC097 !important;
+    box-shadow: 0 0 10px #DCC097 !important;
   }
 
   .text-field-register {

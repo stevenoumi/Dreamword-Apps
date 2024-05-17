@@ -2,14 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { TextField, Button, Stack, Typography } from "@mui/material";
 import "../style/login.css";
-import Header from "../components/Header";
-
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 function Login() {
+  const handleBack = () => {
+    window.history.back();
+  };
+
   return (
     <>
-      <Header />
+      <Button
+        variant="contained"
+        color="primary"
+        startIcon={<ArrowBackIosNewIcon />}
+        className="auth-back-button"
+        onClick={handleBack}
+      >
+        Retour A l'accueil
+      </Button>
       <Stack spacing={2} direction="row" className="login-container">
-    
         <item className="login-form-container">
           <Stack direction="column" spacing={2} className="login-form">
             <Typography variant="h5">
@@ -35,7 +45,9 @@ function Login() {
         </item>
         <item className="login-right-container">
           <Stack direction="column" spacing={2} className="login-right">
-            <Typography variant="h5" className="login-right-h5">Connectez-vous </Typography>
+            <Typography variant="h5" className="login-right-h5">
+              Connectez-vous{" "}
+            </Typography>
             <Typography variant="body" className="login-right-body">
               {" "}
               Email :{" "}

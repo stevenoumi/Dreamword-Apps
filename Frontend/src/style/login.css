@@ -66,6 +66,12 @@
     cursor: pointer;
     
   }
+  .login-right button:hover {
+    color: whitesmoke !important;
+    box-shadow: 0 0 10px white !important;
+    border: solid 2px black !important;
+    
+  }
   .login-right-container {
     width: 40% !important;
     height: 70vh !important;
@@ -119,6 +125,11 @@
     background-color: #DCC097 !important;
 
   }
+  .register-button:hover {
+    background-color: black !important;
+    color: #DCC097 !important;
+    box-shadow: 0 0 10px #DCC097 !important;
+  }
 
   .text-field-register {
     width: 100%;
@@ -127,4 +138,19 @@
     background-color: #f9f9f9;
     border-radius: 5px;  
   } 
+
+  .auth-back-button {
+    align-items: center !important; 
+    justify-content: flex-end; 
+    background-color: #DCC097 !important;
+    color: black !important;
+    position: fixed !important;
+    top: 20px ;
+    left: 20px ;
+  }
   
+  .auth-back-button:hover {
+    background-color: black !important;
+    color: #DCC097 !important;
+    box-shadow: 0 0 10px #DCC097 !important;
+  }

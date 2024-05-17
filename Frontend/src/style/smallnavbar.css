@@ -1,0 +1,17 @@
+.smallnavbar-container {
+    margin-top: 5% !important;
+    background-color: #DCC097 !important; 
+    height: 6vh !important;
+    display: flex !important;
+    justify-content: center !important;
+    position: fixed !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+}
+
+.smallnavbar-text {
+    color: white !important;
+    text-align: center !important;
+    margin-top: 1% !important;
+    font-family: "caligraphieFont" !important;
+}

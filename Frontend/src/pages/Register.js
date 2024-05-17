@@ -1,13 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { TextField, Button, Stack, Typography } from "@mui/material";
 import "../style/register.css";
-import Header from "../components/Header";
 
 function register() {
+  const handleBack = () => {
+    window.history.back();    
+  };
   return (
     <>
-      <Header />
+     <Button
+        variant="contained"
+        color="primary"
+        startIcon={<ArrowBackIosNewIcon />}
+        className="auth-back-button"
+        onClick={handleBack}
+      >
+        Retour A l'accueil
+      </Button>
       <Stack spacing={2} direction="row" className="register-container">
         <item className="register-form-container">
           <Stack direction="column" spacing={2} className="register-form">
@@ -24,7 +35,7 @@ function register() {
               <Button
                 variant="contained"
                 component={Link}
-                to="/"
+                to="/login"
                className="register-login-button"
               >
                 Se connecter
