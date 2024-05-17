@@ -24,6 +24,14 @@
     color: black !important;
     margin-bottom: 10% !important; 
   }
+
+  .detail-back-button:hover {
+    transition: 0.3s !important;
+    transform: scale(1.01);
+    box-shadow: 2px 1px 5px rgba(255, 255, 255, 0.3) !important;
+    background-color: black !important;
+    color: #DCC097 !important;
+  }
 .detatil-info-container {
     margin-top: 30% !important;
     width: 60%;

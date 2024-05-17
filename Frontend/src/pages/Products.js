@@ -1,12 +1,12 @@
 import "../style/App.css";
-import Header from "../components/Header";
 import ShoppingList from "../components/ShoppingList";
 import Footer from "../components/Footer";
+import SmallHeader from "../components/SmallHeader";
 
 function Products() {
   return (
     <div>
-      <Header />
+      <SmallHeader />
       <ShoppingList />
       <Footer />
     </div>

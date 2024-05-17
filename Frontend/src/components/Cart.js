@@ -35,7 +35,7 @@ function Cart({ toggleDrawer }) {
               </item>
               <item>
                 <Typography variant="h6" component="div">
-                  Votre Panier
+                  Ma Commande
                 </Typography>
               </item>
               <item>

@@ -8,7 +8,7 @@ import Register from "./pages/Register";
 import { CartProvider } from "./context/CartContext";
 import Favorite from "./pages/Favorite";
 import { FavoriteProvider } from "./context/FavoriteContext";
-import Contact from "./pages/Contact";
+import Contact from "./pages/ContactPage";
 import Profile from "./components/Profile";
 import Products from "./pages/Products";
 import Home from "./pages/Home";
@@ -21,12 +21,12 @@ root.render(
     <CartProvider>
       <FavoriteProvider>
         <Router>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={Contact} />
           <Route exact path="/products" component={Products} />
           <Route path="/detail/:id" component={ArticleDetails} />
           <Route path="/favorites" component={Favorite} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/login" component={Home} />
+          <Route path="/contact" component={Home} />
+          <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/profile" component={Profile} />
           <Route path="/Cart" component={CartPage} />
