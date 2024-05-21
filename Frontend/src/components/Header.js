@@ -7,14 +7,14 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import SearchIcon from "@mui/icons-material/Search";
 import "../style/header.css";
 import Drawer from "@mui/material/Drawer";
 import Cart from "./Cart";
 import NavBar from "./Navbar";
-import { Avatar, Badge, Button, Grid, InputBase, Stack } from "@mui/material";
+import {  Badge, Grid, Stack } from "@mui/material";
 import { CartContext } from "../context/CartContext";
 import { FavoriteContext } from "../context/FavoriteContext";
+import AvatarMenu from "./AvatarMenu";
 
 function Header() {
   const [CartOpen, setCartOpen] = React.useState(false);
@@ -58,17 +58,6 @@ function Header() {
             <Grid item xs={5}>
               <Stack direction="row" spacing={2} className="app-header-tools">
                 <item>
-                  <Stack direction="row" className="app-header-search-zone">
-                    <InputBase
-                      placeholder="Search a product"
-                      id="search-input"
-                    />
-                    <Button type="button" className="search-icon">
-                      <SearchIcon />
-                    </Button>
-                  </Stack>
-                </item>
-                <item>
                   <IconButton
                     aria-label="favorites"
                     color="inherit"
@@ -96,14 +85,8 @@ function Header() {
                   </IconButton>
                 </item>
                 <item>
-                <Avatar
-                  alt="Remy Sharp"
-                  className="avatar"
-                  component={Link}
-                  to="/profile"
-                  src="profile.png"
-                />
-            </item>
+                  <AvatarMenu />
+                </item>
               </Stack>
             </Grid>
           </Grid>

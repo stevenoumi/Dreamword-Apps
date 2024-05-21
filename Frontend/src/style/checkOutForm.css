@@ -1,0 +1,87 @@
+.checkout-container {
+	width: 100%;
+	height: 100vh; 
+	display: flex;
+	background-image: url('../../public/img.png');
+	background-position: center;
+	background-size: 60%;
+	background-color: rgba(0, 0, 0,0.4);
+	background-blend-mode: darken;
+	align-items: center !important;
+	padding-bottom: 2% !important;
+
+}
+
+.checkout-form-container {
+	width: 90% !important;
+	height: 70vh !important;
+	display: flex;
+	border-radius: 20px !important;
+	align-items: center !important;
+	padding-bottom: 2% !important;
+	color: #DCC097 !important;
+
+}
+
+.checkout-form {
+	width: 100% !important;
+	height: 100% !important;
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	align-items: center !important;
+	padding: 10px !important;
+	background-color: rgba(204, 184, 143, 0.8) !important;
+	border-radius: 20px !important;
+	padding-top: 9% !important;
+}
+
+.checkout-back {
+	width: 25vh !important;
+	font-size: 15px !important;
+	font-family:'Times New Roman' !important; 
+	display: flex !important;
+	justify-content: space-between !important;
+	color: black !important;
+	background-color:  #DCC097 !important;
+	position: absolute !important;
+	top: 5vh !important;
+	left: 5vh !important;
+}
+
+.checkout-back:hover {
+	background-color: black !important;
+	color: #DCC097 !important;
+	box-shadow:  0 0 10px #DCC097 !important;
+}
+.checkout-confirm-button {
+	font-size: 15px !important;
+	font-family:'Times New Roman' !important; 
+	color: #DCC097 !important;
+	background-color:  black !important;
+}
+
+.checkout-confirm-button:hover {
+	background-color: #aaa !important;
+	color: black !important;
+	box-shadow:  0 0 10px #DCC097 !important;
+}
+
+.checkout-tabs {
+	width: 100% !important;
+	display: flex !important;
+	justify-content: space-around !important;
+	align-items: center !important;
+	color: #000 !important;
+}
+
+.checkout-tabs .css-1aquho2-MuiTabs-indicator  {
+	background-color: #000 !important;
+
+}
+
+
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
+	color :#000 !important;
+}
+

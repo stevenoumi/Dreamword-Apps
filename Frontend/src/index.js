@@ -8,12 +8,15 @@ import Register from "./pages/Register";
 import { CartProvider } from "./context/CartContext";
 import Favorite from "./pages/Favorite";
 import { FavoriteProvider } from "./context/FavoriteContext";
-import Contact from "./pages/ContactPage";
 import Profile from "./components/Profile";
 import Products from "./pages/Products";
 import Home from "./pages/Home";
 import CartPage from "./pages/CartPage";
 import Orders from "./pages/Orders";
+import ContactPage from "./pages/ContactPage";
+import PayementPage from "./pages/PayementPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import { Switch } from "react-router-dom/cjs/react-router-dom.min";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,17 +24,22 @@ root.render(
     <CartProvider>
       <FavoriteProvider>
         <Router>
-          <Route exact path="/" component={Contact} />
-          <Route exact path="/products" component={Products} />
+          <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/products" component={Products} />
           <Route path="/detail/:id" component={ArticleDetails} />
           <Route path="/favorites" component={Favorite} />
-          <Route path="/contact" component={Home} />
+          <Route path="/contact" component={ContactPage} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/profile" component={Profile} />
           <Route path="/Cart" component={CartPage} />
           <Route path="/orders" component={Orders} />
+          <Route path="/payement" component={PayementPage} />
+          <Route component={NotFoundPage } />
+          </Switch>
         </Router>
+
       </FavoriteProvider>
     </CartProvider>
   </React.StrictMode>

@@ -1,0 +1,226 @@
+
+.contact-title {
+  width: 100% !important;
+  height: 35vh !important;
+  margin-top: 15vh !important; 
+  display: flex;
+  background-image: url('https://static.wixstatic.com/media/e79818_066fb62fb7db43e788c8a1db894c7f95~mv2.jpg');
+  background-position: center;
+  background-color: rgba(0, 0, 0,0.4);
+  background-blend-mode: darken; 
+  justify-content: center !important;
+  align-items: center !important;
+} 
+
+.contact-title h1 {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: 'Times New Roman';
+}
+
+.contact-info {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Times New Roman';
+  padding-top: 4vh !important;
+}
+
+.contact-info-element {
+    padding-bottom: 1% !important;
+}
+
+.contact-field-container {
+    width: 100% !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: 10vh !important;
+    margin-bottom: 5vh !important;
+}
+.contact-form-container {
+    width: 50% !important;
+    display: flex;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    padding-bottom: 5% !important;
+    justify-content: center !important;
+  
+  }
+  
+  .contact-image {
+    width: 100%;
+    height: 100% !important;
+    display: flex;
+  }
+  
+  .contact-form h1 {
+    color: black !important;
+    text-align: center !important;
+    font-family: 'Times New Roman' !important;
+    font-weight: bold;
+    font-size: 40px;
+    color: #DCC097 !important;
+  }
+  
+  .contact-form-body {
+    font-family: "Times New Roman" !important;
+    color: black !important;
+    padding-top: 2%;
+    text-align: left;
+    text-align: center !important;
+
+  }
+  
+  .contact-button-container {
+    width: 100% !important;
+    margin: auto;
+    justify-content: center !important;
+    align-items: center ! important;
+    display: flex !important;
+    margin-right: 5vh;
+    margin-bottom: 3vh;
+  }
+  
+  .contact-button-submit {
+    width: 70% !important;
+    height: 9vh !important;
+    color:white !important;
+    justify-content: space-between !important;
+  }
+  
+  
+  
+  .contact-right button {
+    width: 100%;
+    padding: 10px !important;
+    background-color: black !important;
+    margin-top: 3% !important;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .contact-right button:hover {
+    color: whitesmoke !important;
+    box-shadow: 0 0 10px white !important;
+    border: solid 2px black !important;
+  }
+  
+  .contact-right-container {
+    width: 50% !important;
+    padding-bottom: 10% !important;
+    padding-right: 1% !important;
+    padding-bottom: 10px !important;
+    padding-left: 8% !important;
+    justify-content: center !important;
+    align-items: center ! important;
+    display: flex;
+    align-items: center !important;
+  }
+  
+  .contact-right {
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: center !important;
+  
+  }
+  
+  .contact-right h5 {
+    color: black;
+    text-align: center !important;
+    font-family: 'Times New Roman';
+    margin-bottom: 5% !important;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .contact-right-body {
+    font-family: "Times New Roman" !important;
+  
+  
+  }
+  
+  .contact-login-button {
+    width: 60% !important;
+    background-color: white !important;
+    border-radius: 50px !important;
+    margin-top: 10% !important;
+    color: black !important;
+    border: #fff !important;
+    padding: 8px !important;
+    background-color: #DCC097 !important;
+  
+  }
+  
+  .contact-login-button:hover {
+    background-color: black !important;
+    color: #DCC097 !important;
+    box-shadow: 0 0 10px #DCC097 !important;
+  }
+  
+  .text-field-contact {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    background-color: black;
+    margin-bottom: 3vh !important;
+    color: #f9f9f9;
+  }
+  .text-field-contact label {
+    color: #f9f9f9;
+    font-family: 'Times New Roman';
+  }
+  .text-field-contact {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    background-color: black;
+    margin-bottom: 3vh !important;
+    color: #f9f9f9;
+    border-radius: 5px;
+}
+.checkbox-contact  {
+    color: black !important;
+}
+
+.text-field-contact label {
+    color: #f9f9f9;
+    font-family: 'Times New Roman';
+}
+
+.text-field-contact .MuiOutlinedInput-root {
+    color: #f9f9f9; /* Couleur du texte */
+}
+
+.text-field-contact .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: #ccc; /* Couleur de la bordure */
+}
+
+.text-field-contact .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #aaa; /* Couleur de la bordure au survol */
+}
+
+.text-field-contact .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #ccc; /* Couleur de la bordure lorsque l'élément est actif */
+}
+
+.text-field-contact .MuiOutlinedInput-root.Mui-focused {
+    background-color: gray !important; /* Couleur de fond lorsque l'élément est actif */
+}
+
+.text-field-contact .MuiInputLabel-root.Mui-focused {
+    background-color: gray;
+    border-radius: 3px !important;
+    color: white; /* Couleur du label lorsque l'élément est actif */
+}
+
+.text-field-contact .MuiInputLabel-root {
+    color: #f9f9f9;
+    font-family: 'Times New Roman';
+}
+
+
+  
+

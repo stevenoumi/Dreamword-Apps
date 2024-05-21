@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { TextField, Button, Stack, Typography } from "@mui/material";
 import "../style/login.css";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import PasswordField from "../components/PassWordField.js";
+
 function Login() {
   const handleBack = () => {
     window.history.back();
@@ -62,12 +64,7 @@ function Login() {
               {" "}
               Password :{" "}
             </Typography>
-            <TextField
-              id="outlined-basic"
-              label="Entrez votre mot de passe ..."
-              variant="outlined"
-              className="text-field-register"
-            />
+              <PasswordField className="text-field-register"/>
             <Stack
               direction="row"
               spacing={2}

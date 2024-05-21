@@ -1,0 +1,73 @@
+.finalcartitem-container {
+    width: 100% !important;
+    height: 20vh !important;
+    display: flex;
+    justify-content: space-between !important;
+    background-color: #DCC097 !important;
+    align-items: center !important;
+    border: black 1px solid;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    border-radius: 15px;
+}
+
+.finalcartitem-image-container {
+    width: 25vh !important;
+    padding: 2vh;
+}
+
+.finalcartitem-image {
+    width: 80%;
+}
+
+.finalcartitem-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30vh !important;
+}
+
+.finalcartitem-category {
+    font-family: 'Arial' !important;
+    color: gray !important;
+}
+
+.finalcartitem-title {
+    font-family: 'Times New Roman' !important;
+    color: black !important;
+}
+
+.finalcartitem-quantity {
+    display: flex;
+    align-items: center;
+    border: black 1px solid;
+    border-radius: 20px;
+    width: 15vh;
+    height: 4vh;
+    margin-right: 2vh;
+}
+
+.finalcartitem-price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25vh;
+}
+
+.finalcartitem-price {
+    font-family: 'Arial' !important;
+    color: black !important;
+    font-weight: bold !important;
+    padding-right: 5vh !important;
+}
+
+
+.finalcartitem-delete-button {
+    color: black !important;
+    padding-right: 3vh !important;
+}
+
+.finalcartitem-quantity-number {
+    color : black !important ;
+    font-family: 'Times New Roman';
+}

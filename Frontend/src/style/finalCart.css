@@ -1,0 +1,164 @@
+.finalcart-container{
+    background-image: url('../../public/login_img.jpg') !important;
+    background-size: 100%;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    background-blend-mode: darken;
+
+    min-height: 100vh;
+    vertical-align: middle;
+    display: flex;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 5vh !important;
+}
+
+.finalcart-cart-container {
+    background-color: black;
+    width: 65% !important;
+    height: 92vh !important;
+    box-shadow: #000 !important;
+    margin-left: 5% !important;
+    padding-left: 5vh !important;
+    padding-right: 5vh !important;
+    border-radius: 20px 0px 0px  20px ;
+    color: #DCC097;
+
+
+}
+
+.finalcart-summary-container{
+    background-color: #DCC097 !important;
+    width: 25% !important;
+    height: 92vh !important;
+    margin-right: 5% !important;
+    padding-left: 7vh;
+    padding-right: 7vh;
+    border-radius: 0px 20px  20px 0px  ;
+
+}
+.finalcart-title {
+    margin: 3vh;
+    display: flex;
+    align-items: center;
+    border-bottom: #000 1px solid;
+    justify-content: space-between;
+}
+
+.finalcart-title h4 {
+    font-family: 'Times New Roman' ;
+    font-weight: "bold" !important;
+}
+
+.finalcart-indication-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+    
+}
+
+
+.finalcart-articles {
+    width: 90% !important;
+    height: 65vh;
+    margin-left: 5vh;
+    overflow-y: auto; 
+
+}
+
+.final-cart-back {
+    width: 32vh;
+    display: flex;
+    align-items: center !important;
+    margin-top: 5vh !important;
+    margin-left: 4vh;
+    justify-content: space-between !important;
+    background-color: #DCC097 !important;
+    color: #000 !important;
+} 
+.final-cart-back:hover{
+    background-color: #000 !important;
+    color: #DCC097 !important;
+    box-shadow: 0 0 10px #DCC097 !important;
+
+}
+.finalcart-summary-title {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    border-bottom: #000 1px solid;
+}
+
+.finalcart-summary-select {
+    width: 100%;
+    height: 5vh ;
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.finalcart-textfield {
+    width: 100% !important;
+    background-color: #ddd !important;
+    color: #000 !important; 
+}
+
+.finalcart-textfield label {
+    display: flex   !important ;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 15px !important;
+    font-family: 'Times New Roman' !important;
+    
+}
+.finalcart-button {
+
+    width: 80% !important;
+    background-color: #000 !important;
+    color: #ddd !important;
+}
+.finalcart-button:hover {
+    background-color: #aaa !important;
+    color: #000 !important;
+    border: #000 1px solid;
+}
+
+.finalcart-textfield label {
+    color: black;
+    font-family: 'Times New Roman';
+}
+
+.finalcart-shoppindmode {
+    display: flex;
+    justify-content: center;
+    align-items: center !important;
+}
+
+.finalcart-textfield .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #aaa; /* Couleur de la bordure au survol */
+}
+
+.finalcart-textfield .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #ccc; /* Couleur de la bordure lorsque l'élément est actif */
+}
+
+.finalcart-textfield .MuiOutlinedInput-root.Mui-focused {
+    background-color: #ddd !important; /* Couleur de fond lorsque l'élément est actif */
+}
+
+.finalcart-textfield .MuiInputLabel-root.Mui-focused {
+    background-color: #ddd;
+    border-radius: 3px !important;
+    color: black; /* Couleur du label lorsque l'élément est actif */
+}
+
+.finalcart-textfield .MuiInputLabel-root {
+    color: black;
+    font-family: 'Times New Roman';
+}
+
+
+  
+

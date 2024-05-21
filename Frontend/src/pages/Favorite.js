@@ -1,16 +1,19 @@
 import "../style/App.css";
+import React, { useContext } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Title from "../components/Title";
 import FavoriteList from "../components/FavoriteList";
+import { FavoriteContext } from "../context/FavoriteContext";
 
 function Favorite() {
-  const title = "Mes Favoris";
+  const { favoriteItems } = useContext(FavoriteContext);
+  const title = "Mes Favoris"
+
+
   return (
     <div className="favorite-back">
       <Header />
-      <Title title={title} backgroundColor="black" textColor="#DCC097" />
-      <FavoriteList />
+      <FavoriteList title={title} ElementList={favoriteItems} />
       <Footer />
     </div>
   );

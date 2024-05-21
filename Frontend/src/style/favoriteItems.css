@@ -1,10 +1,12 @@
 .Favorite-item {
+  width: 95% !important;
+  display: flex;
   padding: 10px;
   border: solid 1px gray;
   border-radius: 10px;
   margin-bottom: 10px;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 3%;
+  margin-right: 3%;
   background-color: #DCC097 !important;
 }
 
@@ -19,9 +21,7 @@
 }
 
 .Favorite-item-title {
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 25px !important;
+  font-size: 20px !important;
   font-family: "CalligraphieFont" !important;
   text-align: flex;
   margin-left: 8% !important;

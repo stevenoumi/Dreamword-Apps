@@ -1,9 +1,7 @@
 import React from 'react';
-import OrderForm from '../components/OrderForm';
 import CheckoutForm from '../components/CheckOut';
-import Header from '../components/Header';
 
-function Home() {
+function PayementPage() {
 
   return (
     <>
@@ -13,4 +11,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default PayementPage;

@@ -12,6 +12,9 @@ function Profile() {
   const handleBack = () => {
     window.history.back();
   }
+  const Adresse = "61 boulevard gaston";
+  const Tel = "+33 6 34 34 19 18";
+  const Nom = "Francis Dupont";
   
   return (
     <Box className="profile-container">
@@ -41,9 +44,10 @@ function Profile() {
           </Avatar>
         </Box>
         <Box className="profile-info">
-          <Typography variant="h4" className="profile-title">Nom de l'utilisateur</Typography>
-          <Typography variant="body1" className="profile-text">Adresse de livraison</Typography>
-          <Typography variant="body2" className="profile-text">Descriptif</Typography>
+          <Typography variant="h4" className="profile-title"> {Nom} </Typography>
+          <Typography variant="body1" className="profile-text"> Adresse : {Adresse} </Typography>
+          <Typography variant="body2" className="profile-text">  N° de Teléphone : {Tel} </Typography>
+          <Button startIcon={<EditIcon/>} className="edit-password-button" >Modifier mon mot de passe </Button>
         </Box>
         <Stack direction="row" spacing={2} className="profile-stack">
           <Link to={`/favorites`} style={{ textDecoration: 'none' }}>

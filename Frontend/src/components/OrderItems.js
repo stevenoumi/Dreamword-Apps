@@ -4,18 +4,16 @@ import Typography from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
 import { CardMedia, Stack, IconButton, Box, Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import "../style/favoriteItems.css";
-import { FavoriteContext } from "../context/FavoriteContext";
+import "../style/OrederItems.css";
+import { OrederContext } from "../context/OrederContext";
 import { CartContext } from "../context/CartContext";
 
+function OrederItems({ item }) {
 
-
-function FavoriteItems({ item }) {
-
-  const { removeFromFavorite } = useContext(FavoriteContext);
+  const { removeFromOreder } = useContext(OrederContext);
   const { addToCart } = useContext(CartContext);
   return (
-    <Box className="Favorite-item">
+    <Box className="Oreder-item">
       <Grid container spacing={1}>
         <Grid item>
           <ButtonBase>
@@ -23,7 +21,7 @@ function FavoriteItems({ item }) {
               component="img"
               image={item.image}
               alt={item.title}
-              className="Favorite-item-image"
+              className="Oreder-item-image"
             />
           </ButtonBase>
         </Grid>
@@ -31,17 +29,17 @@ function FavoriteItems({ item }) {
           <Typography
             variant="h6"
             component="div"
-            className="Favorite-item-title"
+            className="Oreder-item-title"
           >
             {item.title}
           </Typography>
         </Grid>
-        <Grid item className="Favorite-item-price">
+        <Grid item className="Oreder-item-price">
           <Typography variant="h5" component="div">
             {item.price} €
           </Typography>
         </Grid>
-        <Grid item className="Favorite-item-infos">
+        <Grid item className="Oreder-item-infos">
           <Stack direction="column"  spacing={1}alignItems="center">
             <item>
                 <Typography 
@@ -55,16 +53,16 @@ function FavoriteItems({ item }) {
               variant="contained" 
               color="inherit"
               onClick={() => addToCart(item)} 
-              className="Favorite-item-add-to-cart-button"
+              className="Oreder-item-add-to-cart-button"
                >
                 Ajouter au panier
               </Button>
             </item>
             </Stack>
         </Grid>
-        <Grid item className="Favorite-item-delete-button">
+        <Grid item className="Oreder-item-delete-button">
             <IconButton
-            onClick={() => removeFromFavorite(item.id)}
+            onClick={() => removeFromOreder(item.id)}
             >
                 <DeleteIcon />
             </IconButton>
@@ -74,4 +72,4 @@ function FavoriteItems({ item }) {
   );
 }
 
-export default FavoriteItems;
+export default OrederItems;

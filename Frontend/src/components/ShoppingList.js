@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import Grid from '@mui/material/Grid';
 import { Box, Stack } from '@mui/material';
 import ShoppingItems from './ShoppingItems';
@@ -6,13 +6,16 @@ import { CartContext } from "../context/CartContext";
 import { FavoriteContext } from '../context/FavoriteContext';
 import "../style/shoppingList.css";
 
-function ShoppingList({ productsList}) {
+function ShoppingList({ productsList , selectedItem}) {
     const { addToCart } = useContext(CartContext);
     const { addToFavorite } = useContext(FavoriteContext);
     
 
     return (
         <Box className="shopping-list-container">
+            < Stack  direction="row" justifyContent="center">
+                <h1 className="shopping-list-title">{selectedItem}</h1>
+            </Stack>
             <Stack spacing={2} direction="row" justifyContent="center">
             </Stack>
             <Grid container spacing={2}>

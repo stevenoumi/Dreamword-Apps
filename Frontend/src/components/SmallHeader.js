@@ -14,6 +14,7 @@ import NavBar from "./Navbar";
 import { Avatar, Badge, Button, Grid, Stack } from "@mui/material";
 import { CartContext } from "../context/CartContext";
 import { FavoriteContext } from "../context/FavoriteContext";
+import AvatarMenu from "./AvatarMenu";
 
 function SmallHeader() {
   const [CartOpen, setCartOpen] = React.useState(false);
@@ -93,13 +94,7 @@ function SmallHeader() {
                   </IconButton>
                 </item>
                 <item>
-                  <Avatar
-                    alt="Remy Sharp"
-                    className="avatar"
-                    component={Link}
-                    to="/profile"
-                    src="profile.png"
-                  />
+                <AvatarMenu />
                 </item>
               </Stack>
             </Grid>

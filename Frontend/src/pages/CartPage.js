@@ -1,16 +1,12 @@
 import "../style/App.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Title from "../components/Title";
-import FavoriteList from "../components/FavoriteList";
+import FinalCart from "../components/FinalCart";
 
 function CartPage() {
-  const title = "Mon Panier";
   return (
     <div className="favorite-back">
-      <Header />
-      <Title title={title} backgroundColor="black" textColor="#DCC097" />
-      <FavoriteList />
+      <FinalCart />
       <Footer />
     </div>
   );

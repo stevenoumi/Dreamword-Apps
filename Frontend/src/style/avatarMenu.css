@@ -1,0 +1,29 @@
+.pop-menu .MuiMenu-list {
+    color: #DCC097 !important;
+    background-color: black !important;
+    width: 35vh !important;
+    padding-top: 0% !important;
+    padding-bottom: 0% !important;
+
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.pop-menu .MuiMenuItem-root {
+    padding: 10px !important;
+    list-style: none !important;
+    text-align: center !important;
+    font-size: 15px !important;
+}
+
+.pop-menu .MuiMenuItem-root:hover {
+    background-color: #DCC097 !important;
+    color: white !important;
+}
+.header-pop-menu {
+    width: 100%;
+}
+
+.menu-icon {
+    margin-right: 10px;
+}

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import Typography from "@mui/material/Typography";
 import "../style/header.css";
 import List from "@mui/material/List";
@@ -8,7 +8,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
-import {Divider, Link, Stack } from "@mui/material";
+import { Badge, Divider, Link, Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import CategoryIcon from "@mui/icons-material/Category";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -16,9 +16,13 @@ import PeopleIcon from "@mui/icons-material/People";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import HandshakeIcon from "@mui/icons-material/Handshake";
+import { FavoriteContext } from "../context/FavoriteContext";
 import "../style/navbar.css";
 
 function NavBar({ toggleDrawerNavbar }) {
+  const { favoriteItems } = useContext(FavoriteContext);
+
+  const totalFavorites = favoriteItems.length;
   const NavBarItems = [
     {
       text: "Home",
@@ -32,10 +36,14 @@ function NavBar({ toggleDrawerNavbar }) {
     },
     {
       text: "Favorites",
-      icon: <FavoriteIcon />,
+      icon: (
+        <Badge badgeContent={totalFavorites} color="secondary" variant="dot">
+          <FavoriteIcon />
+        </Badge>
+      ),
       link: "/favorites",
     },
-    
+
     {
       text: "Contact",
       icon: <PhoneIcon />,
@@ -71,16 +79,16 @@ function NavBar({ toggleDrawerNavbar }) {
 
   return (
     <Box>
-      <Stack direction="column"  className="nav-container">
+      <Stack direction="column" className="nav-container">
         <item>
           <Stack direction="row" className="nav-header">
             <item>
-             <cardMedia
-              component="img"
-              src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
-              alt="DreamWorld"   
-              className="nav-header-image"           
-            />
+              <cardMedia
+                component="img"
+                src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
+                alt="DreamWorld"
+                className="nav-header-image"
+              />
             </item>
             <item>
               <Typography variant="h6" component="div" className="title">

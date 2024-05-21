@@ -1,0 +1,50 @@
+
+.locationmap-container {
+    width: 94% !important;
+    height: 70vh !important;
+    padding: 3% !important;
+    margin-top: 3% !important;
+    display: flex !important;
+    justify-content: center !important;
+    overflow-x: hidden !important;
+    background-color: #3a3a39 !important;
+    color: white !important;
+}
+
+img.huechange {
+     filter: hue-rotate(0deg); 
+    }
+
+    .cardirection-button {
+        font-size: "Times New Roman" !important;
+        color: black !important;
+        display: flex !important;
+        justify-content: center !important;
+        padding: 5px !important;  
+        margin-top: 10px !important;
+        background-color: #DCC097 !important;
+        color: black !important;
+        border-radius: 5px !important;
+    }
+    .cardirection-button:hover {
+        background-color: black !important;
+        color: #DCC097 !important;
+        box-shadow: 0 0 10px 0 #DCC097 !important;
+    }
+    .satellite-mode-button{
+        position: absolute !important;
+        top: 178vh !important;
+        left: 7vh !important;
+        display: flex !important;
+        justify-content: center !important;
+        z-index: 100 !important;
+        background-color: #5d5a57 !important;
+        color: #DCC097 !important;
+    }
+
+    .satellite-mode-button:hover {
+        background-color: black !important;
+        color: #DCC097 !important;
+        box-shadow: 0 0 10px 0 #DCC097 !important;
+    }
+  

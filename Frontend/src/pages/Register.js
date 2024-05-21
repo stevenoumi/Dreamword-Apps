@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { TextField, Button, Stack, Typography } from "@mui/material";
 import "../style/register.css";
+import PasswordField from "../components/PassWordField";
 
 function register() {
   const handleBack = () => {
@@ -120,24 +121,14 @@ function register() {
                 {" "}
                 Mot de passe :{" "}
               </Typography>
-              <TextField
-                id="outlined-basic"
-                label="Entrez votre Email ..."
-                variant="outlined"
-                className="text-field-register"
-              />
+              <PasswordField />
             </item>
             <item>
               <Typography variant="body" className="register-right-body">
                 {" "}
                 Confirmation du mot de passe :{" "}
               </Typography>
-              <TextField
-                id="outlined-basic"
-                label="Entrez votre mot de passe ..."
-                variant="outlined"
-                className="text-field-register"
-              />
+              <PasswordField />
             </item>
             <item>
               <Stack
