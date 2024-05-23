@@ -10,13 +10,17 @@
     font-family: sans-serif;
     font-size: 0.8rem;
     font-weight: bold;
-    padding: 5vh !important;
+    padding-top: 3vh !important;
+    padding-bottom: 2vh !important;
 }
-
+.finalcart-summary-shipping{
+    height: 44vh !important;
+    display: flex !important;
+}
 .finalcart-cart-container {
     background-color: black;
     width: 65% !important;
-    height: 92vh !important;
+    height: 96vh !important;
     box-shadow: #000 !important;
     margin-left: 5% !important;
     padding-left: 5vh !important;
@@ -26,11 +30,19 @@
 
 
 }
+.finalcart-summary-tab-selector {
+    width: 100% !important;
+    display: flex;
+    margin-top: 1vh !important;
+    border-bottom: #DCC097 2px solid !important;
+    margin-bottom: 1vh !important;
+    color: black !important;
+}
 
 .finalcart-summary-container{
     background-color: #DCC097 !important;
     width: 25% !important;
-    height: 92vh !important;
+    height: 96vh !important;
     margin-right: 5% !important;
     padding-left: 7vh;
     padding-right: 7vh;
@@ -38,7 +50,7 @@
 
 }
 .finalcart-title {
-    margin: 3vh;
+    margin: 2vh;
     display: flex;
     align-items: center;
     border-bottom: #000 1px solid;
@@ -54,6 +66,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between !important;
+    margin-top: 1.1vh !important;
     
 }
 
@@ -83,12 +96,13 @@
 
 }
 .finalcart-summary-title {
-    padding-top: 3vh;
+    margin-top: 2vh !important;
     padding-bottom: 3vh;
     display: flex;
     justify-content: center !important;
     align-items: center;
     border-bottom: #000 1px solid;
+    font-family: 'Times New Roman' !important;
 }
 
 .finalcart-summary-select {
@@ -125,6 +139,9 @@
     border: #000 1px solid;
 }
 
+.finalcart-title .css-9mgopn-MuiDivider-root{
+    border-color :#DCC097 !important;
+}
 .finalcart-textfield label {
     color: black;
     font-family: 'Times New Roman';
@@ -162,3 +179,17 @@
 
   
 
+
+.css-1aquho2-MuiTabs-indicator  {
+	background-color: #000 !important;
+
+}
+
+
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
+	color :#000 !important;
+}
+
+.css-1m27246-MuiButtonBase-root-MuiTab-root.Mui-selected{
+    color: #000 !important;
+}

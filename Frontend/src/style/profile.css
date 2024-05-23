@@ -77,6 +77,9 @@
 .profile-avatar-container {
   width: 220px !important;
   height: 220px !important;
+  border-radius: 50% !important;
+  border: gray 5px solid !important;
+  background-color: #DCC097 !important;
 }
 
 .profile-avatar {
@@ -117,7 +120,7 @@
 }
 
 .profile-card {
-  width: 23vh !important;
+  width: 25vh !important;
   text-align: center;
   justify-content: center;
   background-color: #DCC097 !important;

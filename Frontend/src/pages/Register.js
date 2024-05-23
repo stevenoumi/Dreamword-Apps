@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { TextField, Button, Stack, Typography } from "@mui/material";
 import "../style/register.css";
 import PasswordField from "../components/PassWordField";
 
-function register() {
-  const handleBack = () => {
-    window.history.back();    
+function Register() {
+  const [nom, setNom] = useState("");
+  const [prenom, setPrenom] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleRegister = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ nom, prenom, email, password }),
+      });
+      const data = await response.json();
+      console.log(data); // Vous pouvez gérer la réponse ici
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
+
+  const handleBack = () => {
+    window.location.href = "/";
+  }
+
   return (
     <>
      <Button
@@ -148,4 +171,4 @@ function register() {
   );
 }
 
-export default register;
+export default Register;

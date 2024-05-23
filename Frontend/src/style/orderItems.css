@@ -1,0 +1,73 @@
+.order-item {
+    width: 100% !important;
+    border-radius: 15px !important;
+    background-color: rgba(0,0,0,0.8)!important;
+  }
+  
+  .order-item-title{
+    margin-top: 2vh !important;
+    margin-bottom: 5vh !important;
+  }
+
+  .order-item-stepper{
+    margin-top: 5vh !important;
+    margin-bottom: 5vh !important;
+  }
+  .order-item-list {
+    display: flex;
+    margin-top: 2vh !important;
+    margin-bottom: 1vh !important;
+    border-radius: 10px !important;
+  }
+  .order-item-container {
+    display: flex;
+    margin-top: 1vh !important;
+    margin-bottom: 1vh !important;
+    border-radius: 10px !important;
+    justify-content: space-between !important;
+    background-color: #DCC097 !important;
+    align-items: center !important;
+    padding: 1vh !important;
+  }
+  .order-item-image {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+  ;
+    align-items: center !important;
+    justify-content: center !important;
+
+  }
+  .order-item-button {
+    border-radius: 10px !important;
+    background-color: black !important;
+    color:#DCC097 !important;
+  }
+  .order-item-cardcontent {
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+  .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
+    color: green !important;
+  }
+
+  .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+    color: #DCC097 !important;
+  }
+  .css-1hv8oq8-MuiStepLabel-label.Mui-active {
+    color: #DCC097 !important;
+  }
+  .css-1hv8oq8-MuiStepLabel-label.Mui-completed{
+    color: green !important;
+  }
+
+  .css-1vyamtt-MuiStepLabel-labelContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    color: gray !important;
+  }

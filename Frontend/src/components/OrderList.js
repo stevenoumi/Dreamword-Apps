@@ -1,22 +1,22 @@
 
-import React, { useContext } from "react";
+import React from "react";
 import {  Stack } from "@mui/material";
-import OrederItem from "./OrederItems";
-import "../style/OrederList.css";
-import { OrederContext } from "../context/OrederContext";
+import "../style/favoriteList.css";
+import OrderItem from "./OrderItem";
 
-function OrederList() {
-  const { orederItems } = useContext(OrederContext); 
+function OderList({title , ElementList}) {
+
+    const orderItems = ElementList;
 
   return (
-      <Stack direction="column" spacing={1} className="Oreder-container">
-          <Stack direction="column" spacing={1} className="Oreder-list-container">
-              <div className="Oreder-list-title">
-                  <h1>Votre liste de favoris</h1>
+      <Stack direction="column" spacing={1} className="favorite-container">
+          <Stack direction="column" spacing={1} className="favorite-list-container">
+              <div className="favorite-list-title">
+                  <h1> Mes Commandes </h1>
               </div>
-              <div className="Oreder-list-space">
-                  {orederItems.map((item) => (
-                      <OrederItem key={item.id} item={item} />
+              <div className="favorite-list-space">
+                  {orderItems.map((order) => (
+                      <OrderItem key={order.id} order={order} />
                   ))}
               </div>
           </Stack>
@@ -24,4 +24,4 @@ function OrederList() {
   );
 }
 
-export default OrederList;
+export default OderList;

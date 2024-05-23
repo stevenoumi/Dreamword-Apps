@@ -74,4 +74,24 @@
   display: flex !important;
   justify-content: start !important;
   padding: 2px !important;
-}   
+}
+.shoppingItems-rating {
+  display: flex !important;
+  align-items: center !important  ;
+  margin-left: 13vh !important;
+  margin-right: 2vh !important;
+  background-color: #DCC097!important;
+  height: 4vh !important;
+  border-radius: 20px !important;
+  padding: 5px !important;
+  position: fixed !important;
+  top: 10px !important;
+  left: -12vh !important;
+  z-index: 1 !important;
+  color:  black !important;
+  font-size: 20px !important;
+} 
+.shoppingItems-rating:hover {
+  background-color: #dcc097 !important;
+  transition: 0.3s !important;
+}

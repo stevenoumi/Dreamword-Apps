@@ -12,7 +12,9 @@ import { CartContext } from "../context/CartContext";
 function CartItems({ item }) {
   const { removeFromCart, addToCart } = React.useContext(CartContext);
   const [quantity, setQuantity] = React.useState(item.quantity);
-  const [totalPrice, setTotalPrice] = React.useState(item.price * item.quantity);
+  const [totalPrice, setTotalPrice] = React.useState(
+    item.price * item.quantity
+  );
 
   const updateQuantity = (newQuantity) => {
     if (newQuantity > 0) {
@@ -97,6 +99,7 @@ function CartItems({ item }) {
                         <AddIcon />
                       </IconButton>
                     </item>
+                    
                   </Stack>
                 </item>
                 <item>

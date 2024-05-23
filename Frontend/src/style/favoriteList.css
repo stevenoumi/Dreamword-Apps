@@ -23,16 +23,14 @@
 }
 .favorite-list-space {
   width: 80% !important;
-  height: 50vh !important; 
+  height: 60vh !important; 
   overflow-y: auto; 
-  display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
   padding: 10px !important;
   background-color: rgba(206, 199, 199, 0.185) !important;
   border-radius: 20px !important;
-  padding-top: 9% !important;
 }
 
 .favorite-list-title {

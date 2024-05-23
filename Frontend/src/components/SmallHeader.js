@@ -36,9 +36,7 @@ function SmallHeader() {
   );
   const totalFavorites = favoriteItems.length;
 
-  const handleBack = () => {
-    window.history.back();
-  };
+
 
   return (
     <>
@@ -51,7 +49,8 @@ function SmallHeader() {
                 color="primary"
                 startIcon={<ArrowBackIosNewIcon />}
                 className="smallheader-back-button"
-                onClick={handleBack}
+                component={Link}
+                to="/"
               >
                 Retour A l'accueil
               </Button>

@@ -1,0 +1,33 @@
+.review-container {
+    width: 100%;
+    height: 100vh; 
+    display: flex;
+    background-image: url('../../public/img.png');
+    background-position: center;
+    background-size: 50%;
+    background-color: rgba(0, 0, 0,0.4);
+    background-blend-mode: darken;
+    align-items: center !important;
+
+}
+
+.review-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center !important;
+}
+.review-item-evaluation {
+    display: flex;
+    align-items: center !important;
+}
+
+.review-item-evaluation-star {
+    margin-left: 40px !important;
+}   
+
+.review-item-date {
+    margin-left: 25vh !important;
+    display: flex;
+    align-items: center !important;
+    text-align: center !important;
+}

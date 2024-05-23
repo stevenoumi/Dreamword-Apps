@@ -17,30 +17,37 @@ import ContactPage from "./pages/ContactPage";
 import PayementPage from "./pages/PayementPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { Switch } from "react-router-dom/cjs/react-router-dom.min";
+import { OrderProvider } from "./context/OrderContext";
+import Reviews from "./pages/Reviews";
+import { ReviewProvider } from "./context/ReviewContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <CartProvider>
-      <FavoriteProvider>
-        <Router>
-          <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/products" component={Products} />
-          <Route path="/detail/:id" component={ArticleDetails} />
-          <Route path="/favorites" component={Favorite} />
-          <Route path="/contact" component={ContactPage} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/Cart" component={CartPage} />
-          <Route path="/orders" component={Orders} />
-          <Route path="/payement" component={PayementPage} />
-          <Route component={NotFoundPage } />
-          </Switch>
-        </Router>
-
-      </FavoriteProvider>
-    </CartProvider>
+    <ReviewProvider>
+      <OrderProvider>
+        <CartProvider>
+          <FavoriteProvider>
+            <Router>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/products" component={Products} />
+                <Route path="/detail/:id" component={ArticleDetails} />
+                <Route path="/favorites" component={Favorite} />
+                <Route path="/contact" component={ContactPage} />
+                <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} />
+                <Route path="/profile" component={Profile} />
+                <Route path="/Cart" component={CartPage} />
+                <Route path="/orders" component={Orders} />
+                <Route path="/payement" component={PayementPage} />
+                <Route path="/review/:id" component={Reviews} />
+                <Route component={NotFoundPage} />
+              </Switch>
+            </Router>
+          </FavoriteProvider>
+        </CartProvider>
+      </OrderProvider>
+    </ReviewProvider>
   </React.StrictMode>
 );

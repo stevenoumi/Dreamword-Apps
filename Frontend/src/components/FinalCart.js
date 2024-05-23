@@ -1,10 +1,11 @@
 import {
   Button,
   Divider,
-  InputLabel,
   MenuItem,
   Select,
   Stack,
+  Tab,
+  Tabs,
   TextField,
   Typography,
 } from "@mui/material";
@@ -19,14 +20,13 @@ import "../style/header.css";
 import { Link } from "react-router-dom";
 import "../style/cart.css";
 import { CartContext } from "../context/CartContext";
-import { icon } from "leaflet";
 
 function FinalCart() {
-  const [paymentMethod, setPaymentMethod] = useState("");
+  const [selectedTab, setSelectedTab] = useState(0);
   const { cartItems } = useContext(CartContext);
 
-  const handleChange = (event) => {
-    setPaymentMethod(event.target.value);
+  const handleTabChange = (event, newValue) => {
+    setSelectedTab(newValue);
   };
 
   const totalItems = useMemo(() => {
@@ -44,16 +44,25 @@ function FinalCart() {
 
   const shippingModeList = [
     {
-      text: "à empoter",
+      text: "à emporter",
       icon: <ShoppingBagIcon />,
+      description: "Recupererez votre commande en magasin.",
+      frais_de_livraison: false,
+
     },
     {
-      text: "  Livrason à domicile",
+      text: "Livraison à domicile",
       icon: <DeliveryDiningIcon />,
+      description: "Votre commande sera livrée  à votre adresse.",
+      frais_de_livraison: true,
+      prix_de_livraison: 10,
     },
     {
-      text: "   reserver une table",
+      text: "Réserver une table",
       icon: <RestaurantMenuIcon />,
+      description: "Réservez une table dans notre restaurant.",
+      frais_de_livraison: false,
+
     },
   ];
 
@@ -62,8 +71,8 @@ function FinalCart() {
       <div className="finalcart-cart-container">
         <Stack direction="column">
           <div className="finalcart-title">
-            <Typography variant="h4">Panier</Typography>
-            <Typography variant="subtitle1">{totalItems} articles</Typography>
+            <Typography variant="h4" fontFamily={'Times New Roman'}>Panier</Typography>
+            <Typography variant="subtitle1" fontFamily={'Times New Roman'}>{totalItems} articles</Typography>
           </div>
           <div>
             <Divider color="#DCC097" />
@@ -83,77 +92,92 @@ function FinalCart() {
       <div className="finalcart-summary-container">
         <Stack direction="column" spacing={2}>
           <div className="finalcart-summary-title">
-            <Typography variant="h4">Summary</Typography>
+            <Typography variant="h4" fontFamily={'Times New Roman'}>Résumé</Typography>
           </div>
           <div className="finalcart-indication-title">
-            <Typography variant="body1">Articles: {totalItems}</Typography>
-            <Typography variant="body1">{totalPrice.toFixed(2)} €</Typography>
+            <Typography variant="body1" fontFamily={'Times New Roman'}>Articles: {totalItems}</Typography>
+            <Typography variant="body1" fontFamily={'Times New Roman'}>{totalPrice.toFixed(2)} €</Typography>
           </div>
           <div className="finalcart-indication-title">
-            <Typography variant="body1">Expédition</Typography>
-            <Typography variant="body1">{shippingFee.toFixed(2)} €</Typography>
+            <Typography variant="body1" fontFamily={'Times New Roman'}> Mode de livraison : </Typography>
           </div>
+          <Stack
+            direction="column"
+            spacing={2}
+            className="finalcart-summary-shipping"
+          >
+            <div className="finalcart-summary-tab-selector ">
+              <Tabs
+                value={selectedTab}
+                onChange={handleTabChange}
+                variant="fullWidth"
+                indicatorColor="primary"
+                textColor="primary"
+                size="small"
+                fontFamily={'Times New Roman'}
+              >
+                {shippingModeList.map((mode, index) => (
+                  <Tab key={mode.text} icon={mode.icon} label={mode.text} />
+                ))}
+              </Tabs> 
+            </div>
+            <Typography variant="body1" fontFamily={'Times New Roman'} className="finalcart-indication-title" color="red">
+              {shippingModeList[selectedTab].description}
+            </Typography>
+            <div>
+              <Typography variant="body1" fontFamily={'Times New Roman'}>Code de réduction</Typography>
+            </div>
+            <div className="finalcart-summary-select">
+              <TextField
+                id="discount-code"
+                label="Entrez votre code de réduction"
+                variant="outlined"
+                className="finalcart-textfield"
+                size="small"
+
+              />
+            </div>
+            {selectedTab === 1 && (
+              <>
+                <div>
+                  <Typography fontFamily={'Times New Roman'} variant="body1">Choisir une autre adresse de livraison : </Typography>
+                </div>
+                <div className="finalcart-summary-select">
+                  <TextField
+                    id="shipping-address"
+                    label="Entrez votre adresse de livraison"
+                    variant="outlined"
+                    className="finalcart-textfield"
+                    size="small"
+                  />
+                </div>
+              </>
+            )}
+          </Stack>
+          <Divider />
+          <div className="finalcart-indication-title">
+            <Typography fontFamily={'Times New Roman'} variant="body1">Prix total</Typography>
+            <Typography fontFamily={'Times New Roman'} variant="body1">{finalPrice.toFixed(2)} €</Typography>
+          </div>
+          {shippingModeList[selectedTab].frais_de_livraison && (
+            <div className="finalcart-indication-title">
+              <Typography fontFamily={'Times New Roman'} variant="body1">Frais de livraison</Typography>
+              <Typography fontFamily={'Times New Roman'} variant="body1">{shippingModeList[selectedTab].prix_de_livraison.toFixed(2)} €</Typography>
+            </div>
+          )}
+          <div className="finalcart-indication-title">
+            <Typography fontFamily={'Times New Roman'} variant="body1">Réduction</Typography>
+            <Typography fontFamily={'Times New Roman'} variant="body1">-{discount.toFixed(2)} €</Typography>
+          </div>
+          <Divider />
           <div className="finalcart-summary-select">
-            <Select
-              labelId="payment-method-select-label"
-              id="payment-method-select"
-              value={paymentMethod}
-              onChange={handleChange}
-              className="finalcart-textfield"
-              size="small"
+            <Button
+              variant="outlined"
+              href="/payement"
+              className="finalcart-button"
+              fontFamily={'Times New Roman'}
             >
-              <MenuItem value="">
-                <em>--Please select your shipping Mode--</em>
-              </MenuItem>
-              {shippingModeList.map((item) => (
-                <MenuItem key={item.text} value={item.text} className="finalcart-shoppindmode">
-                  {item.icon}
-                  {item.text}
-                </MenuItem>
-              ))}
-            </Select>
-          </div>
-          <div>
-            <Typography variant="body1">Code de réduction</Typography>
-          </div>
-          <div className="finalcart-summary-select">
-            <TextField
-              id="discount-code"
-              label="Entrez votre code de réduction"
-              variant="outlined"
-              className="finalcart-textfield"
-              size="small"
-            />
-          </div>
-          <div>
-            <Typography variant="body1">Adresse de livraison</Typography>
-          </div>
-          <div className="finalcart-summary-select">
-            <TextField
-              id="shipping-address"
-              label="Entrez votre adresse de livraison"
-              variant="outlined"
-              className="finalcart-textfield"
-              size="small"
-            />
-          </div>
-          <Divider />
-          <div className="finalcart-indication-title">
-            <Typography variant="body1">Prix total</Typography>
-            <Typography variant="body1">{finalPrice.toFixed(2)} €</Typography>
-          </div>
-          <div className="finalcart-indication-title">
-            <Typography variant="body1">Frais de livraison</Typography>
-            <Typography variant="body1">{shippingFee.toFixed(2)} €</Typography>
-          </div>
-          <div className="finalcart-indication-title">
-            <Typography variant="body1">Réduction</Typography>
-            <Typography variant="body1">-{discount.toFixed(2)} €</Typography>
-          </div>
-          <Divider />
-          <div className="finalcart-summary-select">
-            <Button variant="outlined" href="/payement" className="finalcart-button">
-              Proceder au payement
+              Procéder au paiement
             </Button>
           </div>
         </Stack>
