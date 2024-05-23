@@ -1,23 +1,75 @@
+-- Insertion des Categories
+INSERT INTO categories (category_name) VALUES ("Burger");
+INSERT INTO categories (category_name) VALUES ("Boissons");
+INSERT INTO categories (category_name) VALUES ("Frites");
+INSERT INTO categories (category_name) VALUES ("Desserts");
 
--- Insertion des données dans la table produits
-INSERT INTO produits (title, price, image, description, caracteristiques) VALUES
-("Burger Classic", 5.99, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Le burger classique avec une garniture de fromage, de tomates et de laitue.", "Burger à pâté de viande, fromage cheddar, tomates, laitue, et mayonnaise."),
-("Burger BBQ", 6.99, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger BBQ avec une sauce BBQ et des frites.", "Burger à pâté de viande, sauce BBQ, frites, et mayonnaise."),
-("Burger Veggie", 7.99, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger végétarien avec des légumes et du fromage.", "Burger à pâté de légumes, fromage cheddar, tomates, laitue, et mayonnaise."),
-("Burger Spicy", 6.49, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger piquant avec des jalapenos et une sauce piquante.", "Burger à pâté de viande, jalapenos, sauce piquante, et mayonnaise."),
-("Burger Deluxe", 8.99, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger deluxe avec des œufs, des bacon et des frites.", "Burger à pâté de viande, bacon, œufs, frites, et mayonnaise."),
-("Burger Seafood", 9.99, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger au fruits de mer avec des crevettes et des coquilles Saint-Jacques.", "Burger à pâté de viande, crevettes, coquilles Saint-Jacques, et mayonnaise."),
-("Burger Chicken", 7.49, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger au poulet avec une sauce barbecue et des frites.", "Burger à pâté de poulet, sauce barbecue, frites, et mayonnaise."),
-("Burger Cheese", 6.29, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger au fromage avec une garniture de fromage fondu.", "Burger à pâté de viande, fromage fondu, tomates, laitue, et mayonnaise."),
-("Burger Mushroom", 7.29, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger aux champignons avec une sauce au fromage.", "Burger à pâté de viande, champignons, sauce au fromage, et mayonnaise."),
-("Burger Bacon", 8.29, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger au bacon avec une garniture de bacon croustillant.", "Burger à pâté de viande, bacon croustillant, tomates, laitue, et mayonnaise."),
-("Burger Avocado", 7.79, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger au avocat avec une garniture d'avocat maturé.", "Burger à pâté de viande, avocat maturé, tomates, laitue, et mayonnaise."),
-("Burger Tuna", 6.79, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger au thon avec une garniture de thon en conserve.", "Burger à pâté de viande, thon en conserve, tomates, laitue, et mayonnaise."),
-("Burger Grilled", 7.59, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger grillé avec une garniture de légumes grillés.", "Burger à pâté de viande, légumes grillés, tomates, laitue, et mayonnaise."),
-("Burger Ranch", 6.59, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger au ranch avec une sauce ranch et des frites.", "Burger à pâté de viande, sauce ranch, frites, et mayonnaise."),
-("Burger Italian", 8.59, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger italien avec une garniture de fromage mozzarella et de tomates cerises.", "Burger à pâté de viande, fromage mozzarella, tomates cerises, et mayonnaise."),
-("Burger Hawaiian", 7.19, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger hawaïen avec une garniture de thon et de fromage cheddar.", "Burger à pâté de viande, thon, fromage cheddar, tomates, laitue, et mayonnaise."),
-("Burger BBQ Chicken", 8.19, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger BBQ au poulet avec une sauce barbecue et des frites.", "Burger à pâté de poulet, sauce barbecue, frites, et mayonnaise."),
-("Burger Chili", 7.89, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger au chili avec une garniture de chili con carne.", "Burger à pâté de viande, chili con carne, tomates, laitue, et mayonnaise."),
-("Burger Teriyaki", 6.89, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger teriyaki avec une garniture de poulet mariné au teriyaki.", "Burger à pâté de poulet, marinade teriyaki, tomates, laitue, et mayonnaise."),
-("Burger Steak", 8.89, "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", "Burger steak avec une garniture de steak haché et de fromage cheddar.", "Burger à pâté de steak haché, fromage cheddar, tomates, laitue, et mayonnaise.");
+-- Insérez les Burgers dans la table `products`
+INSERT INTO products (title, description, image, price, stock, rating, category_id) VALUES
+("Burger Classic", "Le burger classique avec une garniture de fromage, de tomates et de laitue.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 5.99, 100, 4.5, 1),
+("Burger BBQ", "Burger BBQ avec une sauce BBQ et des frites.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 6.99, 100, 0.0, 1),
+("Burger Veggie", "Burger végétarien avec des légumes et du fromage.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 7.99, 100, 3.5, 1),
+("Burger Spicy", "Burger piquant avec des jalapenos et une sauce piquante.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 6.49, 100, 4.0, 1),
+("Burger Deluxe", "Burger deluxe avec des œufs, des bacon et des frites.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 8.99, 100, 4.5, 1),
+("Burger Seafood", "Burger au fruits de mer avec des crevettes et des coquilles Saint-Jacques.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 9.99, 100, 4.5, 1),
+("Burger Chicken", "Burger au poulet avec une sauce barbecue et des frites.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 7.49, 100, 4.5, 1),
+("Burger Cheese", "Burger au fromage avec une garniture de fromage fondu.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 6.29, 100, 4.5, 1),
+("Burger Mushroom", "Burger aux champignons avec une sauce au fromage.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 7.29, 100, 4.5, 1),
+("Burger Bacon", "Burger au bacon avec une garniture de bacon croustillant.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 8.29, 100, 4.5, 1),
+("Burger Avocado", "Burger au avocat avec une garniture d avocat maturé.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 7.79, 100, 4.5, 1),
+("Burger Tuna", "Burger au thon avec une garniture de thon en conserve.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 6.79, 100, 4.5, 1),
+("Burger Grilled", "Burger grillé avec une garniture de légumes grillés.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 7.59, 100, 4.5, 1),
+("Burger Ranch", "Burger au ranch avec une sauce ranch et des frites.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 6.59, 100, 4.5, 1),
+("Burger Italian", "Burger italien avec une garniture de fromage mozzarella et de tomates cerises.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 8.59, 100, 4.5, 1),
+("Burger Hawaiian", "Burger hawaïen avec une garniture de thon et de fromage cheddar.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 7.19, 100, 4.5, 1),
+("Burger BBQ Chicken", "Burger BBQ au poulet avec une sauce barbecue et des frites.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 8.19, 100, 4.5, 1),
+("Burger Chili", "Burger au chili avec une garniture de chili con carne.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 7.89, 100, 4.5, 1),
+("Burger Teriyaki", "Burger teriyaki avec une garniture de poulet mariné au teriyaki.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 6.89, 100, 4.5, 1),
+("Burger Steak", "Burger steak avec une garniture de steak haché et de fromage cheddar.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 8.89, 100, 4.5, 1);
+
+
+-- Insérez les Boissons dans la table `products`
+
+INSERT INTO products (title, description, image, price, stock, rating, category_id) VALUES 
+("Coca-Cola", "Boisson gazeuse au cola.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Sprite", "Boisson gazeuse au citron vert.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Fanta", "Boisson gazeuse à l'orange.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Ice Tea", "Boisson glacée au thé.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Lemonade", "Boisson gazeuse au citron.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Pepsi", "Boisson gazeuse au cola.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Dr. Pepper", "Boisson gazeuse au cola.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Mountain Dew", "Boisson gazeuse au citron vert.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("7 Up", "Boisson gazeuse au citron vert.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Red Bull", "Boisson énergisante.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 2.99, 100, 4.5, 2),
+("Monster", "Boisson énergisante.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 2.99, 100, 4.5, 2),
+("Rockstar", "Boisson énergisante.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 2.99, 100, 4.5, 2),
+("Gatorade", "Boisson énergisante.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 2.99, 100, 4.5, 2),
+("Vitamin Water", "Boisson énergisante.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 2.99, 100, 4.5, 2),
+("Perrier", "Eau gazeuse.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Evian", "Eau minérale.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("San Pellegrino", "Eau minérale.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Badoit", "Eau gazeuse.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Vittel", "Eau minérale.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
+("Contrex", "Eau minérale.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2);
+
+-- Insérez les Frites dans la table `products`
+
+INSERT INTO products (title, description, image, price, stock, rating, category_id) VALUES 
+("Frites Classic", "Frites classiques avec du sel.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 2.99, 100, 4.5, 3),
+("Frites Cheese", "Frites au fromage fondu.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 3.99, 100, 4.5, 3),
+("Frites BBQ", "Frites avec une sauce barbecue.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 3.99, 100, 4.5, 3),
+("Frites Spicy", "Frites piquantes avec une sauce piquante.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 3.99, 100, 4.5, 3),
+
+
+-- Insérez les Desserts dans la table `products`
+
+INSERT INTO products (title, description, image, price, stock, rating, category_id) VALUES 
+("Sundae", "Sundae avec de la crème glacée et du chocolat.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 4.99, 100, 4.5, 4),
+("Brownie", "Brownie au chocolat avec de la crème glacée.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 5.99, 100, 4.5, 4),
+("Cheesecake", "Cheesecake aux fruits rouges.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 6.99, 100, 4.5, 4),
+("Muffin", "Muffin aux pépites de chocolat.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 3.99, 100, 4.5, 4),
+("Donut", "Donut glacé au sucre.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 2.99, 100, 4.5, 4),
+("Cupcake", "Cupcake à la vanille.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 3.99, 100, 4.5, 4),
+("Pancake", "Pancake avec du sirop d'érable.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 4.99, 100, 4.5, 4),
+("Waffle", "Gaufre avec de la crème fouettée.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 5.99, 100, 4.5, 4),
+("Tiramisu", "Tiramisu au café.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 6.99, 100, 4.5, 4);

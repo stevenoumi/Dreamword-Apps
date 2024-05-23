@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const connection = require("../dbConnection"); // Assurez-vous de bien exporter la connexion MySQL
+const connection = require("../dbConnection"); 
 
 const registerUser = (req, res) => {
   const { username, password } = req.body;
