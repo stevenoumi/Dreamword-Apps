@@ -16,7 +16,7 @@ cd - || exit 1  # Revenir au répertoire précédent
 
 # Démarrer le serveur Backend avec Node.js
 echo "Starting Backend server..."
-node ./Backend/server.js &  # Démarrer le backend en arrière-plan
+node --watch  ./Backend/server.js &  # Démarrer le backend en arrière-plan
 
 # Attendre que tous les processus se terminent
 wait
