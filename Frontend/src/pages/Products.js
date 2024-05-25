@@ -13,13 +13,14 @@ function Products() {
 
   const handleClick = (item) => {
     setSelectedItem(item);
+    console.log("selectedItem in Products:", selectedItem);
   };
 
   const [productsList, setProductsList] = useState([]);
 
   useEffect(() => {
     
-    fetch(`http://localhost:5000/${selectedItem}`)
+    fetch(`http://localhost:5000/products/all-products/`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -33,6 +34,8 @@ function Products() {
         console.error('Erreur lors de la récupération des produits:', error);
       });
   }, [selectedItem]);
+
+  console.log("productsList in Products:", productsList);
 
   return (
     <div>

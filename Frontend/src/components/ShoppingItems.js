@@ -27,10 +27,14 @@ function ShoppingItems({ item }) {
       addToFavorite(item);
     }
   };
-  
+  const itemId = item.id;
+  if(!itemId) {
+    console.log('Item id not found');
+  }
+  console.log(itemId);
   return (
     <Card className="shoppingItems-container">
-      <Link to={`/detail/${item.id}`} style={{ textDecoration: 'none' }}>
+      <Link to={`/detail/${itemId}`} style={{ textDecoration: 'none' }}>
         <CardMedia
           component="img"
           height="200"

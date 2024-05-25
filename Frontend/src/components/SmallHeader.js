@@ -11,7 +11,7 @@ import "../style/smallHeader.css";
 import Drawer from "@mui/material/Drawer";
 import Cart from "./Cart";
 import NavBar from "./Navbar";
-import { Avatar, Badge, Button, Grid, Stack } from "@mui/material";
+import {  Badge, Button, Grid, Stack } from "@mui/material";
 import { CartContext } from "../context/CartContext";
 import { FavoriteContext } from "../context/FavoriteContext";
 import AvatarMenu from "./AvatarMenu";

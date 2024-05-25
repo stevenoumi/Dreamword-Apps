@@ -21,8 +21,15 @@ function Login() {
       });
       const data = await response.json();
       console.log(data);
+      if (response.ok) {
+        localStorage.setItem("token", data.token);
+        window.location.href = "/";
+      } else {
+        setErrorMessage(data.error || "Une erreur est survenue");
+      }
     } catch (error) {
       console.error("Error:", error);
+      setErrorMessage("Erreur de connexion au serveur");
     }
   };
 

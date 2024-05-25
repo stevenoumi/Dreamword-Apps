@@ -1,11 +1,11 @@
 -- Insertion des Categories
-INSERT INTO categories (category_name) VALUES ("Burger");
-INSERT INTO categories (category_name) VALUES ("Boissons");
-INSERT INTO categories (category_name) VALUES ("Frites");
-INSERT INTO categories (category_name) VALUES ("Desserts");
+INSERT INTO Categories (category_name) VALUES ("Burger");
+INSERT INTO Categories (category_name) VALUES ("Boissons");
+INSERT INTO Categories (category_name) VALUES ("Frites");
+INSERT INTO Categories (category_name) VALUES ("Desserts");
 
--- Insérez les Burgers dans la table `products`
-INSERT INTO products (title, description, image, price, stock, rating, category_id) VALUES
+-- Insérez les Burgers dans la table `Products`
+INSERT INTO Products (title, description, image, price, stock, rating, category_id) VALUES
 ("Burger Classic", "Le burger classique avec une garniture de fromage, de tomates et de laitue.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 5.99, 100, 4.5, 1),
 ("Burger BBQ", "Burger BBQ avec une sauce BBQ et des frites.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 6.99, 100, 0.0, 1),
 ("Burger Veggie", "Burger végétarien avec des légumes et du fromage.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 7.99, 100, 3.5, 1),
@@ -28,9 +28,9 @@ INSERT INTO products (title, description, image, price, stock, rating, category_
 ("Burger Steak", "Burger steak avec une garniture de steak haché et de fromage cheddar.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 8.89, 100, 4.5, 1);
 
 
--- Insérez les Boissons dans la table `products`
+-- Insérez les Boissons dans la table `Products`
 
-INSERT INTO products (title, description, image, price, stock, rating, category_id) VALUES 
+INSERT INTO Products (title, description, image, price, stock, rating, category_id) VALUES 
 ("Coca-Cola", "Boisson gazeuse au cola.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
 ("Sprite", "Boisson gazeuse au citron vert.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
 ("Fanta", "Boisson gazeuse à l'orange.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
@@ -52,18 +52,18 @@ INSERT INTO products (title, description, image, price, stock, rating, category_
 ("Vittel", "Eau minérale.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2),
 ("Contrex", "Eau minérale.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 1.99, 100, 4.5, 2);
 
--- Insérez les Frites dans la table `products`
+-- Insérez les Frites dans la table `Products`
 
-INSERT INTO products (title, description, image, price, stock, rating, category_id) VALUES 
+INSERT INTO Products (title, description, image, price, stock, rating, category_id) VALUES 
 ("Frites Classic", "Frites classiques avec du sel.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 2.99, 100, 4.5, 3),
 ("Frites Cheese", "Frites au fromage fondu.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 3.99, 100, 4.5, 3),
 ("Frites BBQ", "Frites avec une sauce barbecue.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 3.99, 100, 4.5, 3),
 ("Frites Spicy", "Frites piquantes avec une sauce piquante.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 3.99, 100, 4.5, 3),
 
 
--- Insérez les Desserts dans la table `products`
+-- Insérez les Desserts dans la table `Products`
 
-INSERT INTO products (title, description, image, price, stock, rating, category_id) VALUES 
+INSERT INTO Products (title, description, image, price, stock, rating, category_id) VALUES 
 ("Sundae", "Sundae avec de la crème glacée et du chocolat.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 4.99, 100, 4.5, 4),
 ("Brownie", "Brownie au chocolat avec de la crème glacée.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 5.99, 100, 4.5, 4),
 ("Cheesecake", "Cheesecake aux fruits rouges.", "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", 6.99, 100, 4.5, 4),

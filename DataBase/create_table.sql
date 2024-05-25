@@ -1,5 +1,5 @@
 -- Suppression des tables si elles existent déjà
-DROP TABLE IF EXISTS Reviews, CustomerSupport, OrderItems, Orders, Carts, Wishlists, Users, products, Categories;
+DROP TABLE IF EXISTS Reviews, CustomerSupport, OrderItems, Orders, Carts, Wishlists, Users, Products, Categories;
 
 -- Création de la table des utilisateurs
 CREATE TABLE Users (
@@ -26,7 +26,7 @@ CREATE TABLE Categories (
 );
 
 -- Création de la table des produits
-CREATE TABLE products (
+CREATE TABLE Products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT,
@@ -47,7 +47,7 @@ CREATE TABLE Wishlists (
     product_id INT NOT NULL,
     added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    FOREIGN KEY (product_id) REFERENCES products(product_id)
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
 -- Création de la table des paniers
@@ -58,7 +58,7 @@ CREATE TABLE Carts (
     quantity INT NOT NULL,
     added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    FOREIGN KEY (product_id) REFERENCES products(product_id)
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
 -- Création de la table des commandes
@@ -82,7 +82,7 @@ CREATE TABLE OrderItems (
     quantity INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-    FOREIGN KEY (product_id) REFERENCES products(product_id)
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
 -- Création de la table du support client
@@ -109,5 +109,5 @@ CREATE TABLE Reviews (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    FOREIGN KEY (product_id) REFERENCES products(product_id)
+    FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );

@@ -1,8 +1,6 @@
 import {
   Button,
   Divider,
-  MenuItem,
-  Select,
   Stack,
   Tab,
   Tabs,
