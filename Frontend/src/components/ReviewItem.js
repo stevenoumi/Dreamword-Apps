@@ -1,11 +1,14 @@
-// src/components/ReviewItem.js
 import React from "react";
 import { Avatar, Box, Rating, Stack, Typography } from "@mui/material";
 import "../style/review.css";
 
 const ReviewItem = ({ review }) => {
   if (!review) {
-    return null; // ou un placeholder de chargement
+    return (
+      <div>
+        <Typography variant="h6">Aucun avis trouvé</Typography>
+      </div>
+    );
   }
 
   return (
@@ -13,13 +16,13 @@ const ReviewItem = ({ review }) => {
       <Stack direction="row" spacing={2} className="review-item">
         <div>
           <Avatar
-            src={(review.image) ? review.image : "profile.png"}
+            src={review.image ? review.image : "profile.png"}
             alt={review.title}
             style={{ width: 70, height: 70 }}
           />
         </div>
         <div>
-          <Typography variant="h7" className="review-item-evaluation">
+          <Typography variant="body1" className="review-item-evaluation">
             <strong> User: userName </strong>
           </Typography>
           <Typography variant="body1" className="review-item-evaluation">

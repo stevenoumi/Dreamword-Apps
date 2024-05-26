@@ -39,11 +39,17 @@ exports.loginUser = async (req, res) => {
       return res.status(401).json({ error: "Mot de passe incorrect" });
     }
 
-    const token = jwt.sign({ userId: user.user_id }, secretKey, { expiresIn: "2h" });
+    const token = jwt.sign({ userId: user.user_id }, secretKey, { expiresIn: "10d" });
 
-    res.status(200).json({ message: "Connexion réussie", token });
+    res.status(200).json({ 
+      message: "Connexion réussie", 
+      token, 
+      user: { id: user.user_id, last_name: user.last_name, first_name: user.first_name, email: user.email }
+    });
   } catch (err) {
     console.error("Erreur lors de la connexion:", err);
     res.status(500).json({ error: "Connexion échouée" });
   }
 };
+
+  

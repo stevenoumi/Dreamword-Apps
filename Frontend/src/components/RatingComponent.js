@@ -29,6 +29,7 @@ const StyledBox = styled(Box)({
 
 const RatingComponent = ({ value, onRatingChange }) => {
   const [hover, setHover] = useState(-1);
+  
 
   return (
     <StyledBox>

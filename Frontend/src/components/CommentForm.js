@@ -1,6 +1,6 @@
-// src/components/CommentForm.js
 import React, { useState } from 'react';
 import { Box, Button, TextField } from '@mui/material';
+
 
 const CommentForm = ({ burgerId, onSubmit }) => {
   const [comment, setComment] = useState('');
@@ -14,10 +14,9 @@ const CommentForm = ({ burgerId, onSubmit }) => {
       console.error("Burger ID is undefined");
       return;
     }
-    onSubmit(comment); 
+    onSubmit(burgerId, comment); 
     setComment('');
   };
-  
 
   return (
     <Box component="form" onSubmit={handleSubmit} className='burgeritem-commentform'>

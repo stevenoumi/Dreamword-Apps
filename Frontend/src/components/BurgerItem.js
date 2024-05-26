@@ -1,4 +1,3 @@
-// src/components/BurgerItem.js
 import React, { useContext, useEffect, useState } from "react";
 import { Avatar, Stack, Typography } from "@mui/material";
 import { ReviewContext } from "../context/ReviewContext";
@@ -8,23 +7,34 @@ import CommentForm from "./CommentForm";
 import "../style/burgerItem.css";
 
 const BurgerItem = ({ burgerId }) => {
-  const { getBurgerById, handleRatingChange, handleCommentSubmit } = useContext(ReviewContext);
+  const { getBurgerById, handleRatingChange, handleCommentSubmit } =
+    useContext(ReviewContext);
   const [burger, setBurger] = useState(null);
 
   useEffect(() => {
-    const fetchedBurger = getBurgerById(burgerId);
-    setBurger(fetchedBurger);
+    const fetchBurger = async () => {
+      const fetchedBurger = await getBurgerById(burgerId);
+      setBurger(fetchedBurger);
+    };
+
+    fetchBurger();
   }, [burgerId, getBurgerById]);
 
   if (!burger) {
-    return <div>Loading...</div>; // ou un placeholder de chargement
+    return <div>Loading...</div>;
   }
+
 
   return (
     <div>
       <Stack className="burgeritem-component" direction="column" spacing={1}>
         <div className="burgeritem-title">
-          <Avatar src={burger.image} alt={burger.title} mr={2} style={{ width: 70, height: 70 }} />
+          <Avatar
+            src={burger.image}
+            alt={burger.title}
+            mr={2}
+            style={{ width: 70, height: 70 }}
+          />
           <div className="burgeritem-title-name">
             <Typography variant="h4" fontFamily="Times New Roman">
               {burger.title}
@@ -39,16 +49,20 @@ const BurgerItem = ({ burgerId }) => {
         <div>
           <RatingComponent
             value={burger.rating}
-            onRatingChange={(newRating) => handleRatingChange(burger.id, newRating)}
+            onRatingChange={(newRating) =>
+              handleRatingChange(burger.product_id, newRating)
+            }
             fontFamily="Times New Roman"
           />
         </div>
         <div className="burgeritem-reviews">
-          <ReviewList reviews={burger.reviews} />
+          <ReviewList burgerId={burger.product_id} />
         </div>
         <CommentForm
-          burgerId={burger.id}
-          onSubmit={(comment) => handleCommentSubmit(burger.id, comment)}
+          burgerId={burger.product_id}
+          onSubmit={(burgerId, comment) =>
+            handleCommentSubmit(burgerId, comment)
+          } // Passer burgerId et comment comme paramètres
           className="burgeritem-commentform"
         />
       </Stack>

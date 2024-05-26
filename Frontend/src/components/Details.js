@@ -23,6 +23,8 @@ function Detail({ selectedItem }) {
   };
    const { addToCart } = useContext(CartContext);
   const { addToFavorite } = useContext(FavoriteContext);
+
+  console.log(selectedItem.product_id);
   return (
     <div>
       <Stack direction="row" spacing={5} className="detail-container">
@@ -84,7 +86,7 @@ function Detail({ selectedItem }) {
                 size="large"
                 precision={0.5}
               />
-              <Link to={`/review/${selectedItem.product_id}`}>
+              <Link to={`/review/${selectedItem.product_id}`} >
                 <Typography variant="body1" className="detail-rating-text">
                   Donner votre avis
                   <StarIcon fontSize="medium" />
