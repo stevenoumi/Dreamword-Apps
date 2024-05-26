@@ -4,12 +4,12 @@ DROP TABLE IF EXISTS Reviews, CustomerSupport, OrderItems, Orders, Carts, Wishli
 -- Création de la table des utilisateurs
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     address TEXT,
+    photo VARCHAR(255),
     phone_number VARCHAR(20),
     billing_information TEXT,
     shipping_address TEXT,

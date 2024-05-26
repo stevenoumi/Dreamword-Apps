@@ -1,3 +1,5 @@
+import React from "react";
+import { useContext } from "react";
 import {
   Button,
   CardMedia,
@@ -11,12 +13,16 @@ import "../style/detail.css";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import StarIcon from "@mui/icons-material/Star";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
+import { FavoriteContext } from "../context/FavoriteContext";
 
 function Detail({ selectedItem }) {
+
   const handleBack = () => {
     window.history.back();
   };
-
+   const { addToCart } = useContext(CartContext);
+  const { addToFavorite } = useContext(FavoriteContext);
   return (
     <div>
       <Stack direction="row" spacing={5} className="detail-container">
@@ -44,7 +50,7 @@ function Detail({ selectedItem }) {
           >
             <div>
               <Typography variant="h6" className="detail-category">
-                Category de l'article
+                Catégorie ID: {selectedItem.category_id}
               </Typography>
             </div>
             <div>
@@ -59,31 +65,36 @@ function Detail({ selectedItem }) {
             </div>
             <div>
               <Typography variant="body1" className="detail-description">
-                {selectedItem.caracteristiques}
+                {selectedItem.description}
               </Typography>
             </div>
             <div>
               <Stack
                 className="detail-available"
                 variant="outlined"
-                color="succes"
+                color="success"
               >
-                il ya du stock
+                {selectedItem.stock > 0 ? "Il y a du stock" : "Rupture de stock"}
               </Stack>
             </div>
-            <div className="detail-rating ">
-              <Rating defaultValue={3} readOnly size="large" precision={0.5} />
-              <Link to={`/review/${selectedItem.id}`}>
+            <div className="detail-rating">
+              <Rating
+                value={selectedItem.rating}
+                readOnly
+                size="large"
+                precision={0.5}
+              />
+              <Link to={`/review/${selectedItem.product_id}`}>
                 <Typography variant="body1" className="detail-rating-text">
-                Donner votre avis
-                <StarIcon fontSize="medium" />
+                  Donner votre avis
+                  <StarIcon fontSize="medium" />
                 </Typography>
               </Link>
             </div>
             <div>
               <Stack direction="row" spacing={5} className="detail-action">
                 <div>
-                  <Button variant="contained" className="detail-add-to-cart">
+                  <Button variant="contained" className="detail-add-to-cart" onClick={() => addToCart(selectedItem)}>
                     Ajouter au panier
                   </Button>
                 </div>
@@ -91,6 +102,7 @@ function Detail({ selectedItem }) {
                   <Button
                     variant="contained"
                     className="detail-add-to-favorite"
+                    onClick={() => addToFavorite(selectedItem)}
                   >
                     <FavoriteBorderIcon />
                   </Button>

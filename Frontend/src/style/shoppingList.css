@@ -2,10 +2,17 @@
   padding-top: 19vh !important;
   padding-left: 5vh !important;
   padding-right: 5vh !important;
+  height: 100% !important;
+  min-height: 81vh !important;
+  
   background-position: center;
   background-size: 70%;
   background-color: rgba(0, 0, 0,0.9);
   background-blend-mode: darken;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .shopping-list-title {

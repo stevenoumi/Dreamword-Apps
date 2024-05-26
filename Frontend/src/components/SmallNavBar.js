@@ -1,5 +1,4 @@
-// SmallNavBar.js
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -8,10 +7,24 @@ import Button from '@mui/material/Button';
 import "../style/smallnavbar.css";
 import { Stack } from '@mui/material';
 
-const navItems = ['Nos menus', ' Nos burgers', 'Nos boissons', 'Nos desserts'];
+function SmallNavBar({ handleClick, selectedItem }) {
+  const [navItems, setNavItems] = useState([]);
 
-function SmallNavBar({ handleClick, selectedItem}) {
-
+  useEffect(() => {
+    fetch(`http://localhost:5000/products/categories`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setNavItems(data);
+      })
+      .catch(error => {
+        console.error('Erreur lors de la récupération des catégories:', error);
+      });
+  }, []); 
 
   return (
     <Box className="smallnavbar-container">
@@ -25,8 +38,12 @@ function SmallNavBar({ handleClick, selectedItem}) {
           </IconButton>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} onClick={() => handleClick(item)} className={(selectedItem === item)? "smallnavbar-cliqued" : "smallnavbar-text"}>
-                {item}
+              <Button
+                key={item.category_id}
+                onClick={() => handleClick(item)}
+                className={(selectedItem === item) ? "smallnavbar-cliqued" : "smallnavbar-text"}
+              >
+                {item.category_name}
               </Button>
             ))}
           </Box>

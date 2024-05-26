@@ -23,6 +23,8 @@ function Login() {
       console.log(data);
       if (response.ok) {
         localStorage.setItem("token", data.token);
+        localStorage.setItem("photo", data.photo);
+
         window.location.href = "/";
       } else {
         setErrorMessage(data.error || "Une erreur est survenue");

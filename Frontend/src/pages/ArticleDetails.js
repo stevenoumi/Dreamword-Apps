@@ -1,49 +1,48 @@
-import '../style/App.css';
-import React, { useEffect, useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Details from '../components/Details';
-import { useParams } from 'react-router-dom';
-
-
+import React, { useEffect, useState } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Detail from "../components/Details";
+import { useParams } from "react-router-dom";
 
 function ArticleDetails() {
   const { id } = useParams();
   const itemId = parseInt(id);
 
-  const [product, setProduct] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
-    // Fonction pour récupérer les détails du produit
     const fetchProductDetail = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/products/1`);
+        const response = await fetch(
+          `http://localhost:5000/products/products/${itemId}`
+        );
         if (!response.ok) {
-          throw new Error('Erreur lors de la récupération des détails du produit');
+          throw new Error(
+            "Erreur lors de la récupération des détails du produit"
+          );
         }
         const productData = await response.json();
-        setProduct(productData);
+        setSelectedItem(productData);
       } catch (error) {
-        console.error('Erreur lors de la récupération des détails du produit:', error);
+        console.error(
+          "Erreur lors de la récupération des détails du produit:",
+          error
+        );
       }
     };
 
-    // Appel de la fonction pour récupérer les détails du produit
     fetchProductDetail();
   }, [itemId]);
 
-
-  // Si les détails du produit n'ont pas encore été chargés, affichez un message de chargement
-  if (!product) {
+  if (!selectedItem) {
     return <div>Chargement en cours...</div>;
   }
 
-
   return (
     <div>
-      <Header/>
-      <Details selectedItem={product}/>
-      <Footer/>
+      <Header />
+      <Detail selectedItem={selectedItem} />
+      <Footer />
     </div>
   );
 }

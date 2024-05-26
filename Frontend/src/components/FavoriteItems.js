@@ -47,7 +47,7 @@ function FavoriteItems({ item }) {
                 <Typography 
                 variant="subtitle1" 
                 component="div">
-                  Ajouté le {item.dateAdded}
+                  Ajouté le : {item.created_at ? item.created_at.slice(0, 10) : "Date inconnue"}
                 </Typography>
             </item>
             <item>
@@ -64,7 +64,7 @@ function FavoriteItems({ item }) {
         </Grid>
         <Grid item className="Favorite-item-delete-button">
             <IconButton
-            onClick={() => removeFromFavorite(item.id)}
+            onClick={() => removeFromFavorite(item)}
             >
                 <DeleteIcon />
             </IconButton>

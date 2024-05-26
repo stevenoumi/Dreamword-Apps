@@ -15,7 +15,7 @@ import "../style/profileForm.css";
 
 function ProfileForm({ userData }) {
   const [profile, setProfile] = useState({
-    name: userData.first_name,
+    first_name: userData.first_name,
     last_name: userData.last_name,
     address: userData.address,
     phone: userData.phone,
@@ -42,7 +42,7 @@ function ProfileForm({ userData }) {
     try {
       const token = localStorage.getItem('token');
       const formData = new FormData();
-      formData.append('name', profile.name);
+      formData.append('first_name', profile.first_name);
       formData.append('last_name', profile.last_name);
       formData.append('address', profile.address);
       formData.append('phone_number', profile.phone);
@@ -117,8 +117,8 @@ function ProfileForm({ userData }) {
 
           <TextField
             label="Nom"
-            name="name"
-            value={profile.name}
+            name="first_name"
+            value={profile.first_name}
             onChange={handleInputChange}
             fullWidth
             variant="outlined"

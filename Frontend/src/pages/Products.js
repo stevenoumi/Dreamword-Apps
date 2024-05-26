@@ -1,4 +1,3 @@
-// Products.js
 import "../style/App.css";
 import React, { useEffect, useState } from "react";
 import ShoppingList from "../components/ShoppingList";
@@ -7,38 +6,48 @@ import SmallHeader from "../components/SmallHeader";
 import SmallNavBar from "../components/SmallNavBar";
 
 function Products() {
-
   const [selectedItem, setSelectedItem] = useState('');
-
 
   const handleClick = (item) => {
     setSelectedItem(item);
-    console.log("selectedItem in Products:", selectedItem);
   };
 
   const [productsList, setProductsList] = useState([]);
 
   useEffect(() => {
-    
-    fetch(`http://localhost:5000/products/all-products/`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setProductsList(data);
-      })
-      .catch(error => {
-        console.error('Erreur lors de la récupération des produits:', error);
-      });
+    if (selectedItem) {
+      fetch(`http://localhost:5000/products/categories/${selectedItem.category_id}/products`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setProductsList(data);
+        })
+        .catch(error => {
+          console.error('Erreur lors de la récupération des produits:', error);
+        });
+    }else {
+      fetch(`http://localhost:5000/products/allproducts`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setProductsList(data);
+        })
+        .catch(error => {
+          console.error('Erreur lors de la récupération des produits:', error);
+        });
+    }
   }, [selectedItem]);
 
-  console.log("productsList in Products:", productsList);
-
   return (
-    <div>
+    <div >
       <SmallHeader />
       <SmallNavBar handleClick={handleClick} selectedItem={selectedItem} />
       <ShoppingList productsList={productsList} selectedItem={selectedItem} />

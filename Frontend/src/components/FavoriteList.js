@@ -14,7 +14,7 @@ function FavoriteList({title , ElementList}) {
               </div>
               <div className="favorite-list-space">
                   {favoriteItems.map((item) => (
-                      <FavoriteItem key={item.id} item={item} />
+                      <FavoriteItem key={item.product_id} item={item} />
                   ))}
               </div>
           </Stack>

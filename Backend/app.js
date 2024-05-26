@@ -5,6 +5,7 @@ const session = require('express-session');
 const userRoutes = require('./src/routes/authRoutes');
 const profileRoutes = require('./src/routes/profileRoutes');
 const productRoutes = require('./src/routes/productRoutes');
+const favoriteRoutes = require('./src/routes/favoritesRoutes');
 const path = require('path');
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(session({
 app.use('/auth', userRoutes);
 app.use('/profile', profileRoutes);
 app.use('/products', productRoutes);
+app.use('/favorites', favoriteRoutes);
 app.use("/images", express.static('images'));
 
 module.exports = app;

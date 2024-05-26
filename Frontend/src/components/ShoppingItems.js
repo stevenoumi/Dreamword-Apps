@@ -18,20 +18,19 @@ function ShoppingItems({ item }) {
   const { addToCart } = useContext(CartContext);
   const { favoriteItems, addToFavorite, removeFromFavorite } = useContext(FavoriteContext);
 
-  const isFavorite = favoriteItems.some(favoriteItem => favoriteItem.id === item.id);
+  const isFavorite = favoriteItems.some(favoriteItem => favoriteItem.product_id === item.product_id);
   
   const handleFavorite = () => {
     if (isFavorite) {
-      removeFromFavorite(item.id);
+      removeFromFavorite(item);
     } else {
       addToFavorite(item);
     }
   };
-  const itemId = item.id;
+  const itemId = item.product_id;
   if(!itemId) {
     console.log('Item id not found');
   }
-  console.log(itemId);
   return (
     <Card className="shoppingItems-container">
       <Link to={`/detail/${itemId}`} style={{ textDecoration: 'none' }}>
