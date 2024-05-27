@@ -34,7 +34,7 @@ export const ReviewProvider = ({ children }) => {
 
   const handleCommentSubmit = async (burgerId, comment) => {
 
-    
+    const rating = 5;
     try {
       const response = await fetch(`http://localhost:5000/reviews/add-review-comment`, {
         method: 'POST',
@@ -42,7 +42,7 @@ export const ReviewProvider = ({ children }) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
-        body: JSON.stringify({ product_id: burgerId, comment})
+        body: JSON.stringify({ product_id: burgerId, comment, rating})
       });
       if (response.ok) {
         const newReview = await response.json();

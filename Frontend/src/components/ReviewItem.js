@@ -1,8 +1,37 @@
 import React from "react";
 import { Avatar, Box, Rating, Stack, Typography } from "@mui/material";
 import "../style/review.css";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const ReviewItem = ({ review }) => {
+  const handleDelete = async (id) => {
+    console.log("Deleting review with id:", id);
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.error("Token not found");
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://localhost:5000/reviews/delete-review/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete review");
+      }
+
+      console.log("Review deleted successfully");
+      window.location.reload();
+    } catch (error) {
+      console.error("Erreur lors de la suppression de l'avis:", error);
+    }
+  };
+
   if (!review) {
     return (
       <div>
@@ -16,14 +45,14 @@ const ReviewItem = ({ review }) => {
       <Stack direction="row" spacing={2} className="review-item">
         <div>
           <Avatar
-            src={review.image ? review.image : "profile.png"}
+            src={review.photo ? review.photo : "profile.png"}
             alt={review.title}
             style={{ width: 70, height: 70 }}
           />
         </div>
         <div>
           <Typography variant="body1" className="review-item-evaluation">
-            <strong> User: userName </strong>
+            <strong> User: {review.last_name}</strong>
           </Typography>
           <Typography variant="body1" className="review-item-evaluation">
             <strong>Évaluation: </strong>{" "}
@@ -39,8 +68,11 @@ const ReviewItem = ({ review }) => {
         </div>
         <div className="review-item-date">
           <Typography variant="body2">
-            <strong>Date du dernier achat : </strong> {review.date}
+            <strong>Date du dernier achat : </strong> {review.created_at ? review.created_at.slice(0, 10) : ""}
           </Typography>
+        </div>
+        <div>
+          <DeleteIcon onClick={() => handleDelete(review.review_id)} />
         </div>
       </Stack>
     </Box>

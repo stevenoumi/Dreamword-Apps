@@ -7,5 +7,6 @@ router.get('/get-review/:id', authenticateToken, reviewController.getProductRevi
 router.post('/add-review-rating', authenticateToken, reviewController.addProductReviewRating);
 router.post('/add-review-comment', authenticateToken, reviewController.addProductReviewComment);
 router.delete('/delete-review/:id', authenticateToken, reviewController.deleteReview);
+router.get('/get-product-reviews/:id', authenticateToken, reviewController.getReviewsByProductId);
 
 module.exports = router;

@@ -61,67 +61,108 @@ exports.getProductReviews = async (req, res) => {
 };
 
 exports.addProductReviewRating = async (req, res) => {
-  const userId = req.user.userId; // Assurez-vous que le middleware d'authentification ajoute le userId au req.user
+  const userId = req.user.userId;
   const { product_id: productId, rating } = req.body;
 
   try {
-    const [result] = await pool.query(
-      'INSERT INTO Reviews (user_id, product_id, rating) VALUES (?, ?, ?)',
-      [userId, productId, rating]
+    // Vérifie si l'utilisateur a déjà ajouté un commentaire pour ce produit
+    const [existingReview] = await pool.query(
+      'SELECT * FROM Reviews WHERE user_id = ? AND product_id = ?',
+      [userId, productId]
     );
 
-    const newReview = {
-      review_id: result.insertId,
-      user_id: userId,
-      product_id: productId,
-      rating,
-      created_at: new Date(),
-      updated_at: new Date()
-    };
+    // Si un commentaire existe déjà, mettez à jour le rating
+    if (existingReview.length > 0) {
+      await pool.query(
+        'UPDATE Reviews SET rating = ? WHERE user_id = ? AND product_id = ?',
+        [rating, userId, productId]
+      );
+      res.status(200).json({ message: 'Le commentaire existant a été mis à jour avec succès' });
+    } else {
+      // Ajouter un nouveau commentaire si aucun commentaire n'existe déjà
+      const [result] = await pool.query(
+        'INSERT INTO Reviews (user_id, product_id, rating) VALUES (?, ?, ?)',
+        [userId, productId, rating]
+      );
 
-    res.status(201).json(newReview);
+      const newReview = {
+        review_id: result.insertId,
+        user_id: userId,
+        product_id: productId,
+        rating,
+        created_at: new Date(),
+        updated_at: new Date()
+      };
+
+      res.status(201).json(newReview);
+    }
   } catch (err) {
-    console.error('Erreur lors de l\'ajout de l\'avis:', err);
+    console.error('Erreur lors de l\'ajout/mise à jour de l\'avis:', err);
     res.status(500).json({ error: 'Erreur serveur' });
   }
 };
 
+
+
 exports.addProductReviewComment = async (req, res) => {
   const userId = req.user.userId; 
-  const { product_id: productId, comment } = req.body;
-
-  console.log(req.body);
+  const { product_id: productId, comment, rating } = req.body;
 
   try {
     const [result] = await pool.query(
-      'INSERT INTO Reviews (user_id, product_id, comment) VALUES (?, ?, ?)',
-      [userId, productId, comment]
+      'UPDATE Reviews SET rating = ?, comment = ? WHERE product_id = ? AND user_id = ?',
+      [rating, comment, productId, userId]
     );
 
-    const newReview = {
-      review_id: result.insertId,
-      user_id: userId,
-      product_id: productId,
-      comment,
-      created_at: new Date(),
-      updated_at: new Date()
-    };
-
-    res.status(201).json(newReview);
+    res.status(201).json({ message: 'Avis mis à jour avec succès' });
   } catch (err) {
-    console.error('Erreur lors de l\'ajout de l\'avis:', err);
+    console.error('Erreur lors de la mise à jour de l\'avis:', err);
     res.status(500).json({ error: 'Erreur serveur' });
+  }
+};
+
+
+exports.getReviewsByProductId = async (req, res) => {
+  const { id: productId } = req.params; // Renommer productId pour correspondre à l'identifiant de la route
+  try {
+    const [rows] = await pool.query(
+      'SELECT R.comment, R.review_id, R.rating, R.created_at, U.first_name, U.photo, U.last_name FROM Reviews R JOIN Users U ON R.user_id = U.user_id WHERE R.product_id = ?',
+      [productId]
+    );
+    if (rows.length > 0) {
+      res.status(200).json(rows);
+    } else {
+      res.status(404).json({ error: "Aucun avis trouvé pour ce produit" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Erreur serveur');
   }
 };
 
 exports.deleteReview = async (req, res) => {
   const userId = req.user.userId;
+  console.log('userId:', userId);
   const { id: reviewId } = req.params;
 
+  console.log('reviewId:', reviewId);
+
   try {
-    const [result] = await pool.query('DELETE FROM Reviews WHERE id = ? AND user_id = ?', [reviewId, userId]);
+    // Vérifiez d'abord si l'utilisateur a le droit de supprimer cet avis
+    const [rows] = await pool.query('SELECT user_id FROM Reviews WHERE review_id = ?', [reviewId]);
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Avis non trouvé' });
+    }
+    const reviewUserId = rows[0].user_id;
+    console.log('reviewUserId:', reviewUserId , 'userId:', userId);
+    if (reviewUserId !== userId) {
+      return res.status(403).json({ error: 'Vous n\'êtes pas autorisé à supprimer cet avis' });
+    }
+
+    // Si l'utilisateur a le droit de supprimer cet avis, procédez à la suppression
+    const [result] = await pool.query('DELETE FROM Reviews WHERE review_id = ?', [reviewId]);
     if (result.affectedRows > 0) {
-      res.status(200).json({ message: 'Avis supprimé' });
+      res.status(200).json({ message: 'Avis supprimé avec succès' });
     } else {
       res.status(404).json({ error: 'Avis non trouvé ou non autorisé' });
     }
@@ -130,4 +171,5 @@ exports.deleteReview = async (req, res) => {
     res.status(500).json({ error: 'Erreur serveur' });
   }
 };
+
 
