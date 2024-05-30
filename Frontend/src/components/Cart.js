@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import CloseIcon from "@mui/icons-material/Close";
 import { AppBar, Stack } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import "../style/cart.css";
@@ -16,6 +16,17 @@ import { CartContext } from "../context/CartContext";
 function Cart({ toggleDrawer }) {
   const { cleanCart } = React.useContext(CartContext);
   const { cartItems } = useContext(CartContext);
+  const history = useHistory();
+
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0); 
+
+  const handleCartCheckout = () => {
+    if (totalItems === 0) {
+      alert("Votre panier est vide");
+    }else{
+      history.push("/Cart");
+    }
+  }
 
   return (
     <Box>
@@ -88,8 +99,7 @@ function Cart({ toggleDrawer }) {
             <item>
               <Button
                 variant="contained"
-                component={Link}
-                to="/Cart"
+                onClick={handleCartCheckout}
                 className="cart-validation-button"
               >
                 Finaliser la commande

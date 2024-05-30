@@ -103,7 +103,6 @@ exports.addProductReviewRating = async (req, res) => {
 };
 
 
-
 exports.addProductReviewComment = async (req, res) => {
   const userId = req.user.userId; 
   const { product_id: productId, comment, rating } = req.body;
@@ -154,7 +153,6 @@ exports.deleteReview = async (req, res) => {
       return res.status(404).json({ error: 'Avis non trouvé' });
     }
     const reviewUserId = rows[0].user_id;
-    console.log('reviewUserId:', reviewUserId , 'userId:', userId);
     if (reviewUserId !== userId) {
       return res.status(403).json({ error: 'Vous n\'êtes pas autorisé à supprimer cet avis' });
     }

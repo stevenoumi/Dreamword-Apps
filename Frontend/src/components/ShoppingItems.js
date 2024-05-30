@@ -60,7 +60,7 @@ function ShoppingItems({ item }) {
             fontFamily={'comfortaa'}
             fontWeight={'bold'}
             >
-              4.8
+              {item.rating} 
             </Typography>
           <Rating defaultValue={4} readOnly max={1} size="medium"/>
           </Stack>

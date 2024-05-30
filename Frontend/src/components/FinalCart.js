@@ -171,7 +171,8 @@ function FinalCart() {
           <div className="finalcart-summary-select">
             <Button
               variant="outlined"
-              href="/payement"
+              component={Link}
+              to="/payement"
               className="finalcart-button"
               fontFamily={'Times New Roman'}
             >

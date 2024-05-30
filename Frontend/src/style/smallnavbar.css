@@ -25,3 +25,19 @@
     margin-top: 1% !important;
     font-family: "caligraphieFont" !important;
 }
+
+.smallnavbar-cliqued:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4) !important;
+}
+
+.smallnavbar-selected {
+    color: black !important;
+    font-family: "caligraphieFont" !important;
+    background-color: white !important;
+    color: black !important;
+    position: absolute !important;
+    top: 1.7vh !important;
+    right: -67vh !important;
+   
+
+}

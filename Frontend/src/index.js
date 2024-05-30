@@ -20,7 +20,7 @@ import { Switch } from "react-router-dom/cjs/react-router-dom.min";
 import { OrderProvider } from "./context/OrderContext";
 import Reviews from "./pages/Reviews";
 import { ReviewProvider } from "./context/ReviewContext";
-
+import '@fontsource/sacramento';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

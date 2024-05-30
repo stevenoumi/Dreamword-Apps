@@ -7,6 +7,7 @@ const profileRoutes = require('./src/routes/profileRoutes');
 const productRoutes = require('./src/routes/productRoutes');
 const favoriteRoutes = require('./src/routes/favoritesRoutes');
 const reviewRoutes = require('./src/routes/reviewRoutes');
+const orderRoutes = require('./src/routes/orderRoutes');
 const path = require('path');
 const app = express();
 
@@ -24,6 +25,7 @@ app.use('/profile', profileRoutes);
 app.use('/products', productRoutes);
 app.use('/favorites', favoriteRoutes);
 app.use('/reviews', reviewRoutes);
+app.use('/orders', orderRoutes);
 app.use("/images", express.static('images'));
 
 module.exports = app;

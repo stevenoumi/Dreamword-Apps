@@ -20,6 +20,8 @@ function FinalCartItems({ item }) {
         removeFromCart(item.id);
       }
     };
+
+    
     return (
         <Stack direction="row" spacing={2} className="finalcartitem-container">
             <div className="finalcartitem-image-container">

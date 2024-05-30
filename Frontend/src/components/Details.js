@@ -27,8 +27,7 @@ function Detail({ selectedItem }) {
   console.log(selectedItem.product_id);
   return (
     <div>
-      <Stack direction="row" spacing={5} className="detail-container">
-        <div className="detail-image">
+       <div>
           <Button
             variant="contained"
             color="primary"
@@ -38,10 +37,14 @@ function Detail({ selectedItem }) {
           >
             Retour
           </Button>
+        </div>
+      <Stack direction="row" spacing={3} className="detail-container">
+       < div className="detail-image-container">
           <CardMedia
             component="img"
             image={selectedItem.image}
             alt={selectedItem.title}
+            className="detail-image"
           />
         </div>
         <div>

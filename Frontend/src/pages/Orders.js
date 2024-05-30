@@ -1,22 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { OrderContext } from "../context/OrderContext";
-import OderList from "../components/OrderList";
+import OrderList from "../components/OrderList";
 
-function Favorite() {
-  const { orderItems } = useContext(OrderContext);
-  
-  const title = "Mes commandes"
+function OrderPages() {
+  const { orderItems, getUserOrders } = useContext(OrderContext);
 
+  useEffect(() => {
+    getUserOrders();
+  }, [getUserOrders]);
+
+  console.log(orderItems);
+
+  const title = "Mes commandes";
 
   return (
     <div className="favorite-back">
       <Header />
-      <OderList itle={title} ElementList={orderItems} />
+      <OrderList title={title} ElementList={orderItems} />
       <Footer />
     </div>
   );
 }
 
-export default Favorite;
+export default OrderPages;

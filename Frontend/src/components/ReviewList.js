@@ -34,7 +34,7 @@ const ReviewList = ({ burgerId }) => { // Utilisez burgerId comme propriété
     };
   
     fetchReviews();
-  }, [burgerId]); // Ajouter burgerId au tableau de dépendances pour que useEffect s'exécute lorsque burgerId change
+  }, [burgerId]); 
 
   return (
     <Box>

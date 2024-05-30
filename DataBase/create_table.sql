@@ -50,16 +50,6 @@ CREATE TABLE Wishlists (
     FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
--- Création de la table des paniers
-CREATE TABLE Carts (
-    cart_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    product_id INT NOT NULL,
-    quantity INT NOT NULL,
-    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    FOREIGN KEY (product_id) REFERENCES Products(product_id)
-);
 
 -- Création de la table des commandes
 CREATE TABLE Orders (

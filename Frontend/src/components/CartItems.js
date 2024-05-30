@@ -10,7 +10,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { CartContext } from "../context/CartContext";
 
 function CartItems({ item }) {
-  const { removeFromCart, addToCart } = React.useContext(CartContext);
+  const { removeFromCart } = React.useContext(CartContext);
   const [quantity, setQuantity] = React.useState(item.quantity);
   const [totalPrice, setTotalPrice] = React.useState(
     item.price * item.quantity
@@ -20,7 +20,6 @@ function CartItems({ item }) {
     if (newQuantity > 0) {
       setQuantity(newQuantity);
       setTotalPrice(item.price * newQuantity);
-      addToCart({ ...item, quantity: newQuantity });
     } else if (newQuantity === 0) {
       removeFromCart(item.id);
     }

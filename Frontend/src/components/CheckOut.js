@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Container,
   Grid,
@@ -23,13 +23,18 @@ import {
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import PaymentIcon from "@mui/icons-material/Payment";
 import MobileFriendlyIcon from "@mui/icons-material/MobileFriendly";
-import "../style/checkOutForm.css";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom";
 import ArrowBackIosNew from "@mui/icons-material/ArrowBackIosNew";
+import { OrderContext } from "../context/OrderContext";
+import { CartContext } from "../context/CartContext";
+import "../style/checkOutForm.css";
 
 const CheckOut = () => {
   const [tabValue, setTabValue] = useState(0);
   const [selectedBank, setSelectedBank] = useState("");
+  const { addToOrder } = useContext(OrderContext);
+  const { cartItems, cleanCart } = useContext(CartContext);
+  const history = useHistory();
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
@@ -67,8 +72,30 @@ const CheckOut = () => {
       (bank) => bank.text === selectedBank
     )?.link;
     if (selectedBankLink) {
+      alert("Redirecting to your bank's payment gateway...");
       window.location.href = selectedBankLink;
     }
+  };
+
+  const getCartItems = () => {
+    return cartItems;
+  };
+
+  const handleCartpayment = async () => {
+    const cartItems = getCartItems();
+    const order = {
+      id: new Date().getTime(), 
+      items: cartItems,
+      currentStep: 1, 
+      totalAmount: cartItems.reduce((acc, item) => acc + parseInt(item.price, 10), 0),
+      dateAdded: new Date().toLocaleDateString(),
+      shipping_address: "123, Lorem Ipsum Street, ABC",
+      billing_address: "123, Lorem Ipsum Street, ABC",
+    };
+    addToOrder(order);
+    console.log("Order placed successfully", order);
+    cleanCart(); 
+    history.push("/orders");
   };
 
   return (
@@ -113,7 +140,7 @@ const CheckOut = () => {
                   </Tabs>
 
                   <Box hidden={tabValue !== 0} pt={3}>
-                    <form onSubmit={(e) => e.preventDefault()}>
+                    <FormControl onSubmit={(e) => e.preventDefault()}>
                       <TextField
                         fullWidth
                         label="Card Owner"
@@ -159,14 +186,13 @@ const CheckOut = () => {
                           variant="contained"
                           color="primary"
                           fullWidth
-                          component={Link}
-                          to="/orders"
+                          onClick={handleCartpayment}
                           className="checkout-confirm-button"
                         >
                           Confirm Payment
                         </Button>
                       </CardActions>
-                    </form>
+                    </FormControl>
                   </Box>
 
                   <Box hidden={tabValue !== 1} pt={3}>
@@ -205,12 +231,15 @@ const CheckOut = () => {
                   <Box hidden={tabValue !== 2} pt={3}>
                     <FormControl fullWidth margin="normal">
                       <InputLabel>Select your Bank</InputLabel>
-                      <Select value={selectedBank} onChange={handleBankChange}>
+                      <Select
+                        value={selectedBank}
+                        onChange={handleBankChange}
+                      >
                         <MenuItem value="">
                           <em>--Please select your Bank--</em>
                         </MenuItem>
                         {BankList.map((item) => (
-                          <MenuItem key={item.text} value={item.text} >
+                          <MenuItem key={item.text} value={item.text}>
                             {item.text}
                           </MenuItem>
                         ))}
@@ -222,6 +251,8 @@ const CheckOut = () => {
                       startIcon={<MobileFriendlyIcon />}
                       onClick={handleProceedPayment}
                       className="checkout-confirm-button"
+                      component={Link}
+                      to="/orders"
                     >
                       Proceed Payment
                     </Button>

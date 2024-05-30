@@ -4,10 +4,10 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import { Stack, Select, MenuItem } from '@mui/material'; // Import Select et MenuItem
 import "../style/smallnavbar.css";
-import { Stack } from '@mui/material';
 
-function SmallNavBar({ handleClick, selectedItem }) {
+function SmallNavBar({ handleClick, selectedItem, handleSortChange }) {
   const [navItems, setNavItems] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function SmallNavBar({ handleClick, selectedItem }) {
       .catch(error => {
         console.error('Erreur lors de la récupération des catégories:', error);
       });
-  }, []); 
+  }, []);
 
   return (
     <Box className="smallnavbar-container">
@@ -47,6 +47,21 @@ function SmallNavBar({ handleClick, selectedItem }) {
               </Button>
             ))}
           </Box>
+          <Select
+            className='smallnavbar-selected'
+            defaultValue=""
+            onChange={(e) => handleSortChange(e.target.value)}
+            displayEmpty
+            sx={{ ml: 2 }}
+            size='small'
+          >
+            <MenuItem value="">
+              <em>Trier les produits</em>
+            </MenuItem>
+            <MenuItem value="asc">Prix croissant</MenuItem>
+            <MenuItem value="desc">Prix décroissant</MenuItem>
+            <MenuItem value="rating">Meilleures notes</MenuItem> {/* Ajouter cette ligne */}
+          </Select>
         </Toolbar>
       </Stack>
     </Box>

@@ -56,6 +56,7 @@ export const ReviewProvider = ({ children }) => {
               : burger
           )
         );
+        window.location.reload();
       } else {
         throw new Error('Failed to add comment');
       }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Detail from "../components/Details";
 import { useParams } from "react-router-dom";
 
@@ -42,7 +41,6 @@ function ArticleDetails() {
     <div>
       <Header />
       <Detail selectedItem={selectedItem} />
-      <Footer />
     </div>
   );
 }

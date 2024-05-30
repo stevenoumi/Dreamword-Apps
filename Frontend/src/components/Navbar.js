@@ -12,7 +12,6 @@ import { Badge, Divider, Link, Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import CategoryIcon from "@mui/icons-material/Category";
 import PhoneIcon from "@mui/icons-material/Phone";
-import PeopleIcon from "@mui/icons-material/People";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import HandshakeIcon from "@mui/icons-material/Handshake";
@@ -48,11 +47,6 @@ function NavBar({ toggleDrawerNavbar }) {
       text: "Contact",
       icon: <PhoneIcon />,
       link: "/contact",
-    },
-    {
-      text: "DreamWorld Lovers",
-      icon: <PeopleIcon />,
-      link: "/lovers",
     },
     {
       text: "Join Us",
@@ -118,3 +112,4 @@ function NavBar({ toggleDrawerNavbar }) {
 }
 
 export default NavBar;
+  

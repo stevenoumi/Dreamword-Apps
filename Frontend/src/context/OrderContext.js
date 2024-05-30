@@ -1,79 +1,65 @@
-
-import { createContext, useState } from "react";
-const getRandomInt = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+import React, { createContext, useState } from 'react';
 
 const OrderContext = createContext();
-const generateRandomItems = (numItems) => {
-  const items = [];
-  for (let i = 0; i < numItems; i++) {
-    items.push({
-      id: i,
-      name: `Article ${i + 1}`,
-      quantity: getRandomInt(1, 5),
-      price: getRandomInt(10, 100),
-      image: itemImages[getRandomInt(0, itemImages.length - 1)],
-    });
-  }
-  return items;
-};
 
-const itemImages = [
-  "https://via.placeholder.com/100",
-  "https://via.placeholder.com/100",
-  "https://via.placeholder.com/100",
-];
+const OrderProvider = ({ children }) => {
+  const [orderItems, setOrderItems] = useState([]);
 
-// Génération d'articles de commande aléatoires
+  const addToOrder = async (order) => {
+    try {
+      const response = await fetch('http://localhost:5000/orders/addorders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify(order)
+      });
 
+      if (!response.ok) {
+        throw new Error('Failed to add order');
+      }
 
-// Génération de commandes aléatoires
-const generateRandomOrders = (numOrders) => {
-  const orders = [];
-  for (let i = 0; i < numOrders; i++) {
-    const now = new Date();
-    const formattedDate = `${("0" + now.getDate()).slice(-2)}/${(
-      "0" + (now.getMonth() + 1)
-    ).slice(-2)}/${now.getFullYear()}`;
-    orders.push({
-      id: i,
-      dateAdded: formattedDate,
-      currentStep: getRandomInt(0, 3),
-      items: generateRandomItems(getRandomInt(1, 5)),
-    });
-  }
-  return orders;
-};
-function OrderProvider ({ children }) {
-  const [orderItems, setOrderItems] = useState(generateRandomOrders(5));
-
-  const addToOrder = (item) => {
-    const isAlreadyInOrders = orderItems.some(
-      (orderItem) => orderItem.id === item.id
-    );
-    if (!isAlreadyInOrders) {
-      const now = new Date();
-      const formattedDate = `${("0" + now.getDate()).slice(-2)}/${(
-        "0" + (now.getMonth() + 1)
-      ).slice(-2)}/${now.getFullYear()}`;
-      setOrderItems([
-        ...orderItems,
-        { ...item, dateAdded: formattedDate },
-      ]);
+      // Fetch user orders after adding the new order
+      await getUserOrders();
+    } catch (error) {
+      console.error('Error adding order:', error.message);
     }
   };
 
+  const getUserOrders = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/orders/userorders', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch user orders');
+      }
+
+      const data = await response.json();
+      setOrderItems(data); // Ensure it's an array
+    } catch (error) {
+      console.error('Error fetching user orders:', error.message);
+    }
+  };
+
+  // Exposer les fonctions addToOrder et getUserOrders
+  // dans la valeur du contexte
+  const contextValue = {
+    orderItems,
+    addToOrder,
+    getUserOrders
+  };
+
   return (
-    <OrderContext.Provider
-      value={{
-        orderItems,
-        addToOrder,
-      }}
-    >
+    <OrderContext.Provider value={contextValue}>
       {children}
     </OrderContext.Provider>
   );
 };
 
-export { OrderContext, OrderProvider };
+export { OrderProvider, OrderContext };
