@@ -1,14 +1,16 @@
 .embla {
-    max-width: 98rem;
+    max-width: 100%;
     margin: auto;
-    --slide-height: 33rem;
+    --slide-height: 50% ;
+    --slide-width: 70%;
     --slide-spacing: 1rem;
     --slide-size: 70%;
-    background-color: antiquewhite;
-    margin-top: 8% !important;
-    height: 82vh;
+    --slide-norepeat: no-repeat;
+    background-color: black;
+    color: #DCC097;
+    height: 80%;
     width: 96vw;
-    border-radius: 20px;
+    padding: 20px;
   }
   .embla__viewport {
     overflow: hidden;
@@ -39,7 +41,6 @@
     grid-template-columns: auto 1fr;
     justify-content: space-between;
     gap: 1.2rem;
-    margin-top: 1.8rem;
   }
   .embla__buttons {
     display: grid;
@@ -61,7 +62,7 @@
     margin: 0;
     box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
     width: 3.6rem;
-    height: 3.6rem;
+   
     z-index: 1;
     border-radius: 50%;
     color: var(--text-body);

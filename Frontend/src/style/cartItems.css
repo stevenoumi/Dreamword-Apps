@@ -16,6 +16,8 @@
   .cart-item-title {
     font-weight: bold !important;
     align-items: center !important;
+    font-size: 25px !important;
+    font-family: 'times new roman' !important;
   }
   
   .cart-item-price {

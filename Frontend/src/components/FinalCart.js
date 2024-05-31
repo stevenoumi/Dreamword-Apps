@@ -38,7 +38,8 @@ function FinalCart() {
   const discountRate = 0.05; // 5% discount
   const discount = totalPrice * discountRate;
   const shippingFee = 10; // Fixed shipping fee
-  const finalPrice = totalPrice + shippingFee - discount;
+  const finalShippingPrice = totalPrice + shippingFee - discount;
+  const finalPrice = selectedTab === 1 ? finalShippingPrice : totalPrice - discount;
 
   const shippingModeList = [
     {

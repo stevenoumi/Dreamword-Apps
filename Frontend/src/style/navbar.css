@@ -1,18 +1,20 @@
 .nav-container {
-    width: 300px;
+    width: 20vw;
     display: flex;
-    flex-wrap: wrap;
     background-color: black;
     height: 100vh;
+    flex-direction: column;
+    align-content: flex-start;
+    
   }
   
   .nav-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
     background-color: #DCC097;
     border-bottom: 1px solid gray;
+    height:10vh;
   }
   
   
@@ -25,7 +27,7 @@
   }
   
   .nav-list {
-    height: 600px;
+    height: 85vh;
     border-bottom: 1px solid gray;
     background-color: black;
     color: #DCC097;

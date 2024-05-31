@@ -21,7 +21,7 @@ function CartItems({ item }) {
       setQuantity(newQuantity);
       setTotalPrice(item.price * newQuantity);
     } else if (newQuantity === 0) {
-      removeFromCart(item.id);
+      removeFromCart(item.product_id);
     }
   };
   return (
@@ -57,7 +57,7 @@ function CartItems({ item }) {
                 <item>
                   <IconButton
                     className="cart-item-delete-button"
-                    onClick={() => removeFromCart(item.id)}
+                    onClick={() => removeFromCart(item.product_id)}
                   >
                     <DeleteIcon />
                   </IconButton>

@@ -3,63 +3,37 @@ import { Box, Container, Grid, Typography, Link, Stack } from '@mui/material';
 
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: '#000', color: '#DCC097', padding: '40px 0' }}>
+    <Box sx={{ backgroundColor: '#000', color: '#DCC097', padding: '40px 0' }} pt={10}>
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
+        <Grid container spacing={7}>
           <Grid item xs={12} md={3}>
             <Stack spacing={1}>
               <Typography variant="h6" gutterBottom color="white">
                 Restaurant DreamWorld
               </Typography>
               <Link href="#" color="inherit" underline="none">
-                Notre histoire
-              </Link>
-              <Link href="#" color="inherit" underline="none">
                 Nos produits
               </Link>
               <Link href="#" color="inherit" underline="none">
-                Nos Burgers
+                Nos Promotions
               </Link>
               <Link href="#" color="inherit" underline="none">
-                Nos Boissons
-              </Link>
-              <Link href="#" color="inherit" underline="none">
-                Nos Desserts
+                Nos Horaires 
               </Link>
             </Stack>
           </Grid>
           <Grid item xs={12} md={3}>
             <Stack spacing={1}>
               <Typography variant="h6" gutterBottom color="white">
-                Nos 2 restaurants à Angers
+                Nos restaurants en France
               </Typography>
               <Link href="#" color="inherit" underline="none">
-                Centre Ville à Angers
+              Restaurant Dreamworld Angers              </Link>
+              <Link href="#" color="inherit" underline="none">
+              Restaurant Dreamworld Bordeaux
               </Link>
               <Link href="#" color="inherit" underline="none">
-                C.C. Atoll à Beaucouzé
-              </Link>
-            </Stack>
-          </Grid>
-          <Grid item xs={12} md={3}>
-            <Stack spacing={1}>
-              <Typography variant="h6" gutterBottom color="white">
-                Recrutement
-              </Typography>
-              <Link href="#" color="inherit" underline="none">
-                Rejoignez nos équipes
-              </Link>
-              <Link href="#" color="inherit" underline="none">
-                Officiel
-              </Link>
-              <Link href="#" color="inherit" underline="none">
-                Manager
-              </Link>
-              <Link href="#" color="inherit" underline="none">
-                Assistant manager
-              </Link>
-              <Link href="#" color="inherit" underline="none">
-                Étudiant
+              Restaurant Dreamworld Paris
               </Link>
             </Stack>
           </Grid>
@@ -71,30 +45,34 @@ const Footer = () => {
               <Link href="#" color="inherit" underline="none">
                 Devenir franchisé
               </Link>
-              <Link href="#" color="inherit" underline="none">
+              <Link href="/Contact" color="inherit" underline="none">
                 Contact
               </Link>
               <Link href="#" color="inherit" underline="none">
                 Nous contacter
               </Link>
-              <Typography variant="h6" gutterBottom color="white" sx={{ marginTop: '16px' }}>
+            </Stack>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <Stack spacing={1}>
+              <Typography variant="h6" gutterBottom color="white">
                 Suivez-nous
               </Typography>
               <Link href="#" color="inherit" underline="none">
                 Instagram
               </Link>
-              <Link href="#" color="inherit" underline="none">
-                Facebook
+              <Link href="https://x.com/SteveNoumi" color="inherit" underline="none">
+                Twitter
               </Link>
-              <Link href="#" color="inherit" underline="none">
+              <Link href="https://www.linkedin.com/in/steve-darius-nde-noumi-803099255/" color="inherit" underline="none">
                 LinkedIn
               </Link>
             </Stack>
-          </Grid>
+            </Grid>
         </Grid>
-        <Box mt={4} textAlign="center" color="white">
+        <Box mt={5} textAlign="center" color="white">
           <Typography variant="body2">
-            © Copyright 2021-2022 - Restaurant MADE - Tous droits réservés
+            © Copyright 2023-2024 - Restaurant Dreamworld - Tous droits réservés
           </Typography>
           <Typography variant="body2">
             <Link href="#" color="inherit" underline="none">

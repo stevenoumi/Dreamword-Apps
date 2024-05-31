@@ -11,13 +11,31 @@
     background-color: black;
     background-blend-mode: darken;
     padding:0  2% !important;
-    margin-top: 9% !important;
+    margin-bottom: 7% !important;
 }
-
+.caroussel-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    background-blend-mode: darken;
+    padding:0  2% !important;
+    margin-top: 7vh !important;
+}
 .homecontent-image-container {
   width: 50% !important; 
   display: flex;
 
+}
+.homecontent-carousel-image{
+    width: 100% !important;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    
 
 }
 .homecontent-image {
@@ -26,6 +44,7 @@
     display: flex;
     justify-content: center;
     align-items: start;
+    background: no-repeat center center;
 }
 .homecontent-Advertisement {
     width: 50% !important;
@@ -79,7 +98,6 @@
     align-items: center !important;
     flex-direction: row !important;
     justify-content: center;
-    margin-top: 3% !important;
     padding-bottom: 5% !important;
     
 }

@@ -6,14 +6,20 @@ import '../style/embla.css'
 import '../style/caroussel.css'
 
 const OPTIONS = { loop: true }
-const SLIDE_COUNT = 3
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+const SLIDE_COUNT = 5
+// faire des slides d'images
+// Dynamic import of images
+const slides = Array.from({ length: SLIDE_COUNT }, (_, i) => 
+  
+   (`http://localhost:5000/images/slide-1.png`)
+
+);
 export const HomeContent = () => {
   return (
     <>
       <Stack spacing={2} direction="column" className="homecontent-container">
-        <div>
-        <EmblaCarousel slides={SLIDES} options={OPTIONS} width="100%" height="100%" />
+        <div className="caroussel-container">
+        <EmblaCarousel slides={slides} options={OPTIONS} width="100%" height="100%" />
 
         </div>
         <div>
