@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Avatar, Stack, Typography } from "@mui/material";
+import { Button } from "@mui/material";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { ReviewContext } from "../context/ReviewContext";
 import RatingComponent from "./RatingComponent";
 import ReviewList from "./ReviewList";
@@ -24,9 +26,23 @@ const BurgerItem = ({ burgerId }) => {
     return <div>Loading...</div>;
   }
 
+  const handleBack = () => {
+    window.history.back();
+  }
 
   return (
     <div>
+       <div>
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<ArrowBackIosNewIcon />}
+            className="burgeritem-back-button"
+            onClick={handleBack}
+          >
+            revenir au produit
+          </Button>
+        </div>
       <Stack className="burgeritem-component" direction="column" spacing={1}>
         <div className="burgeritem-title">
           <Avatar
@@ -65,6 +81,7 @@ const BurgerItem = ({ burgerId }) => {
           } // Passer burgerId et comment comme paramètres
           className="burgeritem-commentform"
         />
+
       </Stack>
     </div>
   );

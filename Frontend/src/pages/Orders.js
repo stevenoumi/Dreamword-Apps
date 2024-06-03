@@ -11,8 +11,6 @@ function OrderPages() {
     getUserOrders();
   }, [getUserOrders]);
 
-  console.log(orderItems);
-
   const title = "Mes commandes";
 
   return (

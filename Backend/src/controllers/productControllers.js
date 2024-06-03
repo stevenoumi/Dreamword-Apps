@@ -19,7 +19,24 @@ exports.getAllProducts = async (req, res) => {
 exports.getProductById = async (req, res) => {
   const productId = req.params.id;
   try {
-    const sql = `SELECT * FROM Products WHERE product_id = ?`;
+    const sql = `
+    SELECT 
+      Products.product_id,
+      Products.title,
+      Products.description,
+      Products.image,
+      Products.price,
+      Products.stock,
+      Products.rating,
+      Products.created_at,
+      Products.updated_at,
+      Categories.category_name
+    FROM 
+      Products
+    INNER JOIN 
+      Categories ON Products.category_id = Categories.category_id
+    WHERE product_id = ?`;
+
     const [result] = await pool.query(sql, [productId]);
 
     if (result.length > 0) {
@@ -29,6 +46,25 @@ exports.getProductById = async (req, res) => {
     }
   } catch (err) {
     console.error("Erreur lors de la récupération du produit:", err);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+};
+
+exports.addProduct = async (req, res) => {
+
+  const { title, description, image, price, stock, rating, category_id } = req.body;
+
+  try {
+    const sql = `INSERT INTO Products (title, description, image, price, stock, rating, category_id) VALUES (?, ?, ?, ?, ?, ?, ?)`;
+    const [result] = await pool.query(sql, [title, description, image, price, stock, rating, category_id]);
+
+    if (result.affectedRows > 0) {
+      res.status(201).json({ message: "Produit ajouté avec succès" });
+    } else {
+      res.status(500).json({ error: "Erreur lors de l'ajout du produit" });
+    }
+  } catch (err) {
+    console.error("Erreur lors de l'ajout du produit:", err);
     res.status(500).json({ error: "Erreur serveur" });
   }
 };

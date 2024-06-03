@@ -7,13 +7,14 @@ import {
   usePrevNextButtons
 } from './EmblaCarouselArrowButtons'
 import { CardMedia, Stack } from '@mui/material'
+import Slides from './Slides'
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay({ playOnInit: false, delay: 3000 })
+    Autoplay({ playOnInit: true, delay: 3000 })
   ])
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(true)
 
   const {
     prevBtnDisabled,
@@ -64,12 +65,7 @@ const EmblaCarousel = (props) => {
           {slides.map((index) => (
             <div className="embla__slide" key={index}>
               <div className="embla__slide__number">
-                <CardMedia
-                  component="img"
-                  src='http://localhost:5000/images/slide-2.png'
-                  alt="DreamWorld"
-                  className="homecontent-carousel-image"
-                />
+                <Slides item={index} />
               </div>
             </div>
           ))}

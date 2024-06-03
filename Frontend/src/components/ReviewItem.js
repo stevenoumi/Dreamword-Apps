@@ -5,7 +5,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const ReviewItem = ({ review }) => {
   const handleDelete = async (id) => {
-    console.log("Deleting review with id:", id);
     const token = localStorage.getItem("token");
     if (!token) {
       console.error("Token not found");
@@ -25,7 +24,6 @@ const ReviewItem = ({ review }) => {
         throw new Error("Failed to delete review");
       }
 
-      console.log("Review deleted successfully");
       window.location.reload();
     } catch (error) {
       console.error("Erreur lors de la suppression de l'avis:", error);

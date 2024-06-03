@@ -70,7 +70,7 @@ function OrderItem({ order }) {
                   Prix: {item.item_total_price} €
                 </Typography>
                 <Stack direction="column" spacing={2} >
-                  <Button variant="contained" color="primary" className="order-item-button " onAbort={() => addToCart(item)}>
+                  <Button variant="contained" color="primary" className="order-item-button " onClick={() => addToCart(item)}>
                     Ajouter au panier
                   </Button>
                 </Stack>

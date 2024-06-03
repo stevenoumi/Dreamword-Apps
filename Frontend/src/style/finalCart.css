@@ -73,9 +73,12 @@
 
 .finalcart-articles {
     width: 90% !important;
-    height: 65vh;
+    height: 70vh !important;
     margin-left: 5vh;
-    overflow-y: auto; 
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    
 
 }
 
@@ -104,6 +107,12 @@
     border-bottom: #000 1px solid;
     font-family: 'Times New Roman' !important;
 }
+
+.finalcart-list {
+    padding: 10px;
+    justify-content: space-between;
+    background-color: black !important;
+  }
 
 .finalcart-summary-select {
     width: 100%;

@@ -16,6 +16,16 @@
 
 }
 
+.burgeritem-back-button {
+    height: 5vh !important;
+    position: fixed !important;
+    top: 5% !important;
+    left: 1% !important;
+    background-color: #DCC097 !important;
+    color: black !important;
+    margin-bottom: 10% !important; 
+  }
+
 .burgeritem-title {
     flex-direction: row !important;
     display: flex !important;

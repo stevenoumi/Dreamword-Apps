@@ -37,7 +37,6 @@ const createOrder = async (req, res) => {
 
 const getUserOrders = async (req, res) => {
     const userId = req.user.userId;
-    console.log(userId);
 
     const sql = `
         SELECT 
@@ -100,7 +99,6 @@ const getUserOrders = async (req, res) => {
         }, []);
 
         res.status(200).json(orders);
-        console.log("Les orders sont : ", orders);
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch user orders', details: error.message });
     }

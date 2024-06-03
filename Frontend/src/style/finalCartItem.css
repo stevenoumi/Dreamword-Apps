@@ -18,6 +18,9 @@
 
 .finalcartitem-image {
     width: 80%;
+    max-width: 200px;
+    max-height: 130px;
+    border-radius: 15px;
 }
 
 .finalcartitem-details {

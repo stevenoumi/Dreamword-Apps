@@ -9,6 +9,7 @@ import { AppBar, Stack } from "@mui/material";
 import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import "../style/cart.css";
 import CartItems from "./CartItems";
 import { CartContext } from "../context/CartContext";
@@ -27,7 +28,7 @@ function Cart({ toggleDrawer }) {
       history.push("/Cart");
     }
   }
-
+ 
   return (
     <Box>
       <Stack direction="column" spacing={1} className="cart-container">
@@ -58,11 +59,21 @@ function Cart({ toggleDrawer }) {
           </AppBar>
           <Divider />
         </item>
+        {cartItems.length === 0 ?
+          <item className="cart-empty">
+            <ProductionQuantityLimitsIcon   sx={{ fontSize: 200 }} />
+            <Typography variant="h6" component="div" mt={5} >
+
+             Votre panier est vide
+            </Typography>
+          </item>
+          : 
         <item className="cart-list">
           {cartItems.map((item) => (
             <CartItems key={item.id} item={item} />
           ))}
         </item>
+        }
         <AppBar position="fixed" className="cart-appbar" color="transparent">
           <Stack
             direction="column"

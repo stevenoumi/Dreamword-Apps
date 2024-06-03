@@ -77,7 +77,7 @@ function FinalCart() {
             <Divider color="#DCC097" />
           </div>
           <div className="finalcart-articles">
-            <div className="cart-list">
+            <div className="finalcart-list">
               {cartItems.map((item) => (
                 <FinalCartItems key={item.id} item={item} />
               ))}

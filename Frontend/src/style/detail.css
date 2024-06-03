@@ -1,14 +1,20 @@
 
 .detail-container {
     width: 100%;
-    height: 98vh;
-    overflow-y: hidden;
+    height: 85vh !important;
+    overflow: hidden !important;
+    justify-content: center;
+    align-items: center !important;
+    padding-top: 15vh !important;
     display: flex;
-    background-position: center;
-    background-size: 70%;
-    background-color: rgba(0, 0, 0, 0.94);
-    background-blend-mode: darken;
-    margin-top: 1% !important;
+    background-color: rgba(0,0,0,0.9);
+
+}
+.detail-semi-container {
+    width: 100%;
+    height: 100% !important;
+    justify-content: center;
+    display: flex;
 
 }
 .detail-back-button {
@@ -30,26 +36,26 @@
   }
 
 .detail-info-container {
-    margin-top: 30% !important;
-    width: 60%;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #DCC097;   
+    width: 50%;
+    display: flex;
+    padding-left: 3vw !important;   
+    padding-right: 2vw !important;
+    color: wheat;
+    font-family: 'Times New Roman'; 
+    padding-top: 7vh !important; 
 }
 
 .detail-image-container {
-    height: 100%!important;
-    aspect-ratio: 1/1 !important;
+    width: 50%;
+    height: 100%;
     display: flex;
+    border-radius: 10px;
     align-items: center !important;
-    margin-left: 10vh !important;
 }
 .detail-image {
-    margin-top: 8vh !important;
-    width: 85% !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
+    height: 90% !important;
+    max-width: 90% !important;
+    border-radius: 10px;
 }
   
 .detail-category {
@@ -141,14 +147,15 @@
     color: #DCC097 !important;
 }
 .detail-rating-text {
-    width: 50vh !important;
+    width: 70vh !important;
     display: flex;
     align-items: center !important;
     margin-top: 5% !important;
     font-family: "CalligraphieFont" !important;
-    font-size: 20px !important;
+    font-size: 10px !important;
     color: #DCC097 !important;
-    margin-left: 10vh !important;
+    margin-left: 3vw !important;
+    background-color: black !important;
 }
 
 .detail-rating-message {
@@ -174,7 +181,7 @@
 }
 
 .detail-divider {
-    width: 70vh !important;
+    width: 30vw !important;
     border-bottom: 1px solid #DCC097 !important;
     margin-top: 10% !important;
 }

@@ -7,7 +7,6 @@ export const ReviewProvider = ({ children }) => {
 
   const handleRatingChange = async (burgerId, newRating) => {
 
-    console.log(burgerId, newRating);
     setBurgers(prevBurgers =>
       prevBurgers.map(burger =>
         burger.product_id === burgerId ? { ...burger, rating: newRating } : burger

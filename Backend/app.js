@@ -8,12 +8,13 @@ const productRoutes = require('./src/routes/productRoutes');
 const favoriteRoutes = require('./src/routes/favoritesRoutes');
 const reviewRoutes = require('./src/routes/reviewRoutes');
 const orderRoutes = require('./src/routes/orderRoutes');
+const mailRoutes = require('./src/routes/mailRoutes');
 const path = require('path');
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-
+    
 app.use(session({
     secret: 'secret',
     saveUninitialized: true,
@@ -26,6 +27,7 @@ app.use('/products', productRoutes);
 app.use('/favorites', favoriteRoutes);
 app.use('/reviews', reviewRoutes);
 app.use('/orders', orderRoutes);
+app.use('/mail', mailRoutes);
 app.use("/images", express.static('images'));
 
 module.exports = app;

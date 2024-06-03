@@ -42,7 +42,6 @@ function Profile() {
         }
 
         const data = await response.json();
-        console.log(data);
         setUserData({
           first_name: data.first_name,
           last_name: data.last_name,

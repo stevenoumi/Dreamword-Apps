@@ -41,7 +41,6 @@ exports.addFavorite = async (req, res) => {
 exports.deleteFavorite = async (req, res) => {
     const userId = req.user.userId;
     const productId = req.body.product_id; 
-    console.log(userId, productId);
     try {
         const sql = `DELETE FROM Wishlists WHERE user_id = ? AND product_id = ?`;
         await pool.query(sql, [userId, productId]);

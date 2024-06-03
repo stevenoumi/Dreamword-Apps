@@ -71,7 +71,7 @@ function CartItems({ item }) {
                 justifyContent="space-between"
               >
                 <Typography variant="body2">
-                  {item.price} € * {quantity}
+                  {item.price} € x {quantity}
                 </Typography>
               </Stack>
             </item>
@@ -103,7 +103,7 @@ function CartItems({ item }) {
                 </item>
                 <item>
                   <Typography variant="subtitle1" className="cart-item-price">
-                    {totalPrice} €
+                    {totalPrice.toFixed(2)} €
                   </Typography>
                 </item>
               </Stack>

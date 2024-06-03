@@ -35,7 +35,6 @@ function Register() {
 
       const data = await response.json();
       if (response.ok) {
-        console.log(data);
         window.location.href = "/login";
       } else {
         setErrorMessage(data.error || "Une erreur est survenue");

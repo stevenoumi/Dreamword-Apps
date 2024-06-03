@@ -7,8 +7,6 @@ import CartItems from "./CartItems";
 
 function CartList() {
   const { cartItems } = useContext(CartContext);
-  //const { cleanCart } = useContext(CartContext);
-  console.log(cartItems);
 
   return (
     <>

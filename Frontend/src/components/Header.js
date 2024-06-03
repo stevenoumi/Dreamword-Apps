@@ -27,7 +27,6 @@ function Header() {
   };
   const toggleDrawerNavbar = () => {
     setNavBarOpen((prevState) => !prevState);
-    console.log("toggleDrawerNavbar", NavBarOpen);
   };
 
   const totalUniqueItems = cartItems.reduce(

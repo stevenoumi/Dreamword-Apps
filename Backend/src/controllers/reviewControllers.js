@@ -141,10 +141,8 @@ exports.getReviewsByProductId = async (req, res) => {
 
 exports.deleteReview = async (req, res) => {
   const userId = req.user.userId;
-  console.log('userId:', userId);
   const { id: reviewId } = req.params;
 
-  console.log('reviewId:', reviewId);
 
   try {
     // Vérifiez d'abord si l'utilisateur a le droit de supprimer cet avis

@@ -18,27 +18,25 @@ import { FavoriteContext } from "../context/FavoriteContext";
 
 function Detail({ selectedItem }) {
 
-  const handleBack = () => {
-    window.history.back();
-  };
    const { addToCart } = useContext(CartContext);
   const { addToFavorite } = useContext(FavoriteContext);
 
-  console.log(selectedItem.product_id);
+  const link = `/review/${selectedItem.product_id}`;
   return (
-    <div>
+    <div className="detail-container">
        <div>
           <Button
             variant="contained"
             color="primary"
             startIcon={<ArrowBackIosNewIcon />}
             className="detail-back-button"
-            onClick={handleBack}
+            component={Link}
+            to="/products"
           >
             Retour
           </Button>
         </div>
-      <Stack direction="row" spacing={3} className="detail-container">
+      <Stack direction="row" spacing={1} className="detail-semi-container">
        < div className="detail-image-container">
           <CardMedia
             component="img"
@@ -55,7 +53,7 @@ function Detail({ selectedItem }) {
           >
             <div>
               <Typography variant="h6" className="detail-category">
-                Catégorie ID: {selectedItem.category_id}
+                Catégorie : {selectedItem.category_name}
               </Typography>
             </div>
             <div>
@@ -89,12 +87,11 @@ function Detail({ selectedItem }) {
                 size="large"
                 precision={0.5}
               />
-              <Link to={`/review/${selectedItem.product_id}`} >
-                <Typography variant="body1" className="detail-rating-text">
+              
+                <Button variant="body1" component={Link} to={link} className="detail-rating-text" >
                   Donner votre avis
                   <StarIcon fontSize="medium" />
-                </Typography>
-              </Link>
+                </Button>
             </div>
             <div>
               <Stack direction="row" spacing={5} className="detail-action">

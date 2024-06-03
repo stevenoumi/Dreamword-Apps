@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton, Stack, Typography } from "@mui/material";
+import { CardMedia, IconButton, Stack, Typography } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -10,22 +10,26 @@ function FinalCartItems({ item }) {
     const { removeFromCart, addToCart } = React.useContext(CartContext);
     const [quantity, setQuantity] = React.useState(item.quantity);
     const [totalPrice, setTotalPrice] = React.useState(item.price * item.quantity);
-  
+
     const updateQuantity = (newQuantity) => {
-      if (newQuantity > 0) {
-        setQuantity(newQuantity);
-        setTotalPrice(item.price * newQuantity);
-        addToCart({ ...item, quantity: newQuantity });
-      } else if (newQuantity === 0) {
-        removeFromCart(item.id);
-      }
+        if (newQuantity > 0) {
+            setQuantity(newQuantity);
+            setTotalPrice(item.price * newQuantity);
+            addToCart({ ...item, quantity: newQuantity });
+        } else if (newQuantity === 0) {
+            removeFromCart(item.id);
+        }
     };
 
-    
+
     return (
         <Stack direction="row" spacing={2} className="finalcartitem-container">
             <div className="finalcartitem-image-container">
-                <img className="finalcartitem-image" src={item.image} alt={item.name} />
+                <CardMedia
+                    component="img"
+                    className="finalcartitem-image"
+                    src={item.image}
+                    alt={item.name} />
             </div>
             <div className="finalcartitem-details">
                 <Typography variant="subtitle1" className="finalcartitem-category">
@@ -48,7 +52,7 @@ function FinalCartItems({ item }) {
                 <Typography variant="subtitle1" className="finalcartitem-price">
                     {totalPrice.toFixed(2)} €
                 </Typography>
-                <IconButton className="finalcartitem-delete-button" onClick={() => removeFromCart(item.id)}>
+                <IconButton className="finalcartitem-delete-button" onClick={() => removeFromCart(item.product_id)}>
                     <DeleteIcon />
                 </IconButton>
             </div>

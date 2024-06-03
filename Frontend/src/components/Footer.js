@@ -3,7 +3,7 @@ import { Box, Container, Grid, Typography, Link, Stack } from '@mui/material';
 
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: '#000', color: '#DCC097', padding: '40px 0' }} pt={10}>
+    <Box sx={{ backgroundColor: '#000', color: '#DCC097', padding: '100px 0px 50px 0px' }} pt={10}>
       <Container maxWidth="lg">
         <Grid container spacing={7}>
           <Grid item xs={12} md={3}>
@@ -70,7 +70,7 @@ const Footer = () => {
             </Stack>
             </Grid>
         </Grid>
-        <Box mt={5} textAlign="center" color="white">
+        <Box mt={10} textAlign="center" color="white">
           <Typography variant="body2">
             © Copyright 2023-2024 - Restaurant Dreamworld - Tous droits réservés
           </Typography>

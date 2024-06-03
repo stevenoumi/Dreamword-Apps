@@ -30,8 +30,14 @@ import { CartContext } from "../context/CartContext";
 import "../style/checkOutForm.css";
 
 const CheckOut = () => {
+  const [cardOwner, setCardOwner] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [expMonth, setExpMonth] = useState("");
+  const [expYear, setExpYear] = useState("");
+  const [cvv, setCvv] = useState("");
   const [tabValue, setTabValue] = useState(0);
   const [selectedBank, setSelectedBank] = useState("");
+  const [errors, setErrors] = useState({});
   const { addToOrder } = useContext(OrderContext);
   const { cartItems, cleanCart } = useContext(CartContext);
   const history = useHistory();
@@ -81,7 +87,34 @@ const CheckOut = () => {
     return cartItems;
   };
 
+  const validateForm = () => {
+    const errors = {};
+    if (!cardOwner.trim()) {
+      errors.cardOwner = "Card owner name is required";
+    }
+    if (!/^\d{16}$/.test(cardNumber)) {
+      errors.cardNumber = "Card number must be 16 digits";
+    }
+    if (!(parseInt(expMonth) >= 1 && parseInt(expMonth) <= 12)) {
+      errors.expMonth = "Expiration month must be between 1 and 12";
+    }
+    const currentYear = new Date().getFullYear();
+    if (!(parseInt(expYear) >= currentYear)) {
+      errors.expYear = `Expiration year must be ${currentYear} or later`;
+    }
+    if (!/^\d{3}$/.test(cvv)) {
+      errors.cvv = "CVV must be 3 digits";
+    }
+    return errors;
+  };
+
   const handleCartpayment = async () => {
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     const cartItems = getCartItems();
     const order = {
       id: new Date().getTime(), 
@@ -93,7 +126,6 @@ const CheckOut = () => {
       billing_address: "123, Lorem Ipsum Street, ABC",
     };
     addToOrder(order);
-    console.log("Order placed successfully", order);
     cleanCart(); 
     history.push("/orders");
   };
@@ -140,18 +172,26 @@ const CheckOut = () => {
                   </Tabs>
 
                   <Box hidden={tabValue !== 0} pt={3}>
-                    <FormControl onSubmit={(e) => e.preventDefault()}>
+                    <form onSubmit={(e) => e.preventDefault()}>
                       <TextField
                         fullWidth
                         label="Card Owner"
                         margin="normal"
                         required
+                        value={cardOwner}
+                        onChange={(e) => setCardOwner(e.target.value)}
+                        error={!!errors.cardOwner}
+                        helperText={errors.cardOwner}
                       />
                       <TextField
                         fullWidth
                         label="Card Number"
                         margin="normal"
                         required
+                        value={cardNumber}
+                        onChange={(e) => setCardNumber(e.target.value)}
+                        error={!!errors.cardNumber}
+                        helperText={errors.cardNumber}
                       />
                       <Grid container spacing={2}>
                         <Grid item xs={6}>
@@ -161,6 +201,10 @@ const CheckOut = () => {
                             margin="normal"
                             type="number"
                             required
+                            value={expMonth}
+                            onChange={(e) => setExpMonth(e.target.value)}
+                            error={!!errors.expMonth}
+                            helperText={errors.expMonth}
                           />
                         </Grid>
                         <Grid item xs={6}>
@@ -170,6 +214,10 @@ const CheckOut = () => {
                             margin="normal"
                             type="number"
                             required
+                            value={expYear}
+                            onChange={(e) => setExpYear(e.target.value)}
+                            error={!!errors.expYear}
+                            helperText={errors.expYear}
                           />
                         </Grid>
                       </Grid>
@@ -179,6 +227,10 @@ const CheckOut = () => {
                         margin="normal"
                         required
                         type="password"
+                        value={cvv}
+                        onChange={(e) => setCvv(e.target.value)}
+                        error={!!errors.cvv}
+                        helperText={errors.cvv}
                       />
                       <CardActions>
                         <Button
@@ -192,7 +244,7 @@ const CheckOut = () => {
                           Confirm Payment
                         </Button>
                       </CardActions>
-                    </FormControl>
+                    </form>
                   </Box>
 
                   <Box hidden={tabValue !== 1} pt={3}>
