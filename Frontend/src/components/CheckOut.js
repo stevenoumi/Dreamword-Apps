@@ -87,33 +87,7 @@ const CheckOut = () => {
     return cartItems;
   };
 
-  const validateForm = () => {
-    const errors = {};
-    if (!cardOwner.trim()) {
-      errors.cardOwner = "Card owner name is required";
-    }
-    if (!/^\d{16}$/.test(cardNumber)) {
-      errors.cardNumber = "Card number must be 16 digits";
-    }
-    if (!(parseInt(expMonth) >= 1 && parseInt(expMonth) <= 12)) {
-      errors.expMonth = "Expiration month must be between 1 and 12";
-    }
-    const currentYear = new Date().getFullYear();
-    if (!(parseInt(expYear) >= currentYear)) {
-      errors.expYear = `Expiration year must be ${currentYear} or later`;
-    }
-    if (!/^\d{3}$/.test(cvv)) {
-      errors.cvv = "CVV must be 3 digits";
-    }
-    return errors;
-  };
-
   const handleCartpayment = async () => {
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
 
     const cartItems = getCartItems();
     const order = {

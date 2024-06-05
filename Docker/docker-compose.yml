@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-
   mariadb:
     image: mariadb:latest
     environment:
@@ -23,6 +22,24 @@ services:
       - "8080:80"
     depends_on:
       - mariadb
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    command: npm start
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    depends_on:
+      - mariadb
+    ports:
+      - "5000:5000"
+    command: npm start
 
 volumes:
   mariadb_data:

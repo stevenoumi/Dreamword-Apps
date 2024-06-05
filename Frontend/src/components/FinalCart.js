@@ -21,10 +21,35 @@ import { CartContext } from "../context/CartContext";
 
 function FinalCart() {
   const [selectedTab, setSelectedTab] = useState(0);
+  const [discountCode, setDiscountCode] = useState('');
+  const [discountAmount, setDiscountAmount] = useState(0);
   const { cartItems } = useContext(CartContext);
 
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
+  };
+
+  const handleDiscountCodeChange = (event) => {
+    setDiscountCode(event.target.value);
+  };
+
+  const applyDiscountCode = () => {
+    const discountCodes = {
+      "WELCOME": 0.10, 
+      "NEWFLAVOR": 0.15, 
+      "STUDENT10": 0.10,
+      "FREEDELIVERY": 0.00, 
+    };
+
+    if (discountCodes.hasOwnProperty(discountCode.toUpperCase())) {
+      const discountPercentage = discountCodes[discountCode.toUpperCase()];
+      setDiscountAmount(totalPrice * discountPercentage);
+      if (discountCode.toUpperCase() === "FREEDELIVERY") {
+        setSelectedTab(1);
+      }
+    } else {
+      setDiscountAmount(10);
+    }
   };
 
   const totalItems = useMemo(() => {
@@ -35,24 +60,21 @@ function FinalCart() {
     return cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   }, [cartItems]);
 
-  const discountRate = 0.05; // 5% discount
-  const discount = totalPrice * discountRate;
-  const shippingFee = 10; // Fixed shipping fee
-  const finalShippingPrice = totalPrice + shippingFee - discount;
-  const finalPrice = selectedTab === 1 ? finalShippingPrice : totalPrice - discount;
+  const shippingFee = -10; // Fixed shipping fee
+  const finalShippingPrice = totalPrice + shippingFee - discountAmount;
+  const finalPrice = selectedTab === 1 ? finalShippingPrice : totalPrice - discountAmount;
 
   const shippingModeList = [
     {
       text: "à emporter",
       icon: <ShoppingBagIcon />,
-      description: "Recupererez votre commande en magasin.",
+      description: "Récupérez votre commande en magasin.",
       frais_de_livraison: false,
-
     },
     {
       text: "Livraison à domicile",
       icon: <DeliveryDiningIcon />,
-      description: "Votre commande sera livrée  à votre adresse.",
+      description: "Votre commande sera livrée à votre adresse.",
       frais_de_livraison: true,
       prix_de_livraison: 10,
     },
@@ -61,7 +83,6 @@ function FinalCart() {
       icon: <RestaurantMenuIcon />,
       description: "Réservez une table dans notre restaurant.",
       frais_de_livraison: false,
-
     },
   ];
 
@@ -118,7 +139,7 @@ function FinalCart() {
                 {shippingModeList.map((mode, index) => (
                   <Tab key={mode.text} icon={mode.icon} label={mode.text} />
                 ))}
-              </Tabs> 
+              </Tabs>
             </div>
             <Typography variant="body1" fontFamily={'Times New Roman'} className="finalcart-indication-title" color="red">
               {shippingModeList[selectedTab].description}
@@ -129,12 +150,16 @@ function FinalCart() {
             <div className="finalcart-summary-select">
               <TextField
                 id="discount-code"
-                label="Entrez votre code de réduction"
+                label="code de réduction"
                 variant="outlined"
                 className="finalcart-textfield"
                 size="small"
-
+                value={discountCode}
+                onChange={handleDiscountCodeChange}
               />
+              <Button onClick={applyDiscountCode} variant="outlined"  style={{ marginLeft : '10px' }} className="finalcart-button">
+                Appliquer
+              </Button>
             </div>
             {selectedTab === 1 && (
               <>
@@ -166,7 +191,9 @@ function FinalCart() {
           )}
           <div className="finalcart-indication-title">
             <Typography fontFamily={'Times New Roman'} variant="body1">Réduction</Typography>
-            <Typography fontFamily={'Times New Roman'} variant="body1">-{discount.toFixed(2)} €</Typography>
+            {discountAmount > 0 && (
+              <Typography fontFamily={'Times New Roman'} variant="body1">-{discountAmount.toFixed(2)} €</Typography>
+            )}
           </div>
           <Divider />
           <div className="finalcart-summary-select">

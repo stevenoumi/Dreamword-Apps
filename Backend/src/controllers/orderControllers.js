@@ -104,4 +104,61 @@ const getUserOrders = async (req, res) => {
     }
 };
 
-module.exports = { createOrder, getUserOrders };
+const getAllOrders  = async (req, res) => {
+
+    const sql = `SELECT * FROM Orders`;
+
+    try {
+        const [result] = await pool.query(sql);
+
+        if (result.length > 0) {
+            res.status(200).json(result);
+        } else {
+            res.status(404).json({ error: 'No order found' });
+        }
+    } catch (error) {
+        console.error('Error while fetching orders:', error);
+        res.status(500).json({ error: 'Server error' });
+    }
+};
+
+const updateOrderStatus = async (req, res) => {
+
+    const orderId = req.params.id;
+    const newStatus = req.body.status;
+
+    try {
+        const sql = `UPDATE Orders SET status = ? WHERE order_id = ?`;
+        const [result] = await pool.query(sql, [newStatus, orderId]);
+
+        if (result.affectedRows > 0) {
+            res.status(200).json({ message: 'Order status updated successfully' });
+        } else {
+            res.status(404).json({ error: 'Order not found' });
+        }
+    } catch (error) {
+        console.error('Error while updating order status:', error);
+        res.status(500).json({ error: 'Server error' });
+    }
+};
+
+const deleteOrder = async (req, res) => {
+    
+        const orderId = req.params.id;
+    
+        try {
+            const sql = `DELETE FROM Orders WHERE order_id = ?`;
+            const [result] = await pool.query(sql, [orderId]);
+    
+            if (result.affectedRows > 0) {
+                res.status(200).json({ message: 'Order deleted successfully' });
+            } else {
+                res.status(404).json({ error: 'Order not found' });
+            }
+        } catch (error) {
+            console.error('Error while deleting order:', error);
+            res.status(500).json({ error: 'Server error' });
+        }
+    };
+
+module.exports = { createOrder, getUserOrders , getAllOrders , updateOrderStatus , deleteOrder };

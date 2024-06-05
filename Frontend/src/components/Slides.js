@@ -30,11 +30,11 @@ function Slides({ item }) {
                 </React.Fragment>
               ))}
             </Typography>
-            <Button component={Link} to="/produc" variant="contained" color="inherit" sx={{ width: "200px", backgroundColor: "#DCC098" }} >
-              Profitez de l'offre
+            <Button component={Link} to="/products" variant="contained" color="inherit" sx={{ width: "300px", backgroundColor: "#DCC098" }} >
+              Commander maintenant
             </Button>
             <Typography variant="h5">
-              <img
+              <CardMedia
                 component="img"
                 src="http://localhost:5000/images/burger-croque.png"
                 alt="DreamWorld"

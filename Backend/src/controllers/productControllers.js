@@ -101,3 +101,20 @@ exports.getProductsByCategoryId = async (req, res) => {
     res.status(500).json({ error: "Erreur serveur" });
   }
 };
+
+exports.deleteProduct = async (req, res) => {
+  const productId = req.params.id;
+  try {
+    const sql = `DELETE FROM Products WHERE product_id = ?`;
+    const [result] = await pool.query(sql, [productId]);
+
+    if (result.affectedRows > 0) {
+      res.status(200).json({ message: "Produit supprimé avec succès" });
+    } else {
+      res.status(404).json({ error: "Produit non trouvé" });
+    }
+  } catch (err) {
+    console.error("Erreur lors de la suppression du produit:", err);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+};

@@ -15,6 +15,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import HandshakeIcon from "@mui/icons-material/Handshake";
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { FavoriteContext } from "../context/FavoriteContext";
 import "../style/navbar.css";
 
@@ -53,6 +54,12 @@ function NavBar({ toggleDrawerNavbar }) {
       icon: <HandshakeIcon />,
       link: "/joinus",
     },
+
+    {
+      text: "Admin",
+      icon: <AdminPanelSettingsIcon />,
+      link: "/admin",
+    }
   ];
 
   const DrawerNavBarList = (

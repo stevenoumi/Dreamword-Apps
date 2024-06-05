@@ -16,6 +16,7 @@ import Orders from "./pages/Orders";
 import ContactPage from "./pages/ContactPage";
 import PayementPage from "./pages/PayementPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import AdminPage from "./pages/AdminPage";
 import { Switch } from "react-router-dom/cjs/react-router-dom.min";
 import { OrderProvider } from "./context/OrderContext";
 import Reviews from "./pages/Reviews";
@@ -42,6 +43,7 @@ root.render(
                 <Route path="/orders" component={Orders} />
                 <Route path="/payement" component={PayementPage} />
                 <Route path="/review/:id" component={Reviews} />
+                <Route path='/admin' component={AdminPage} />
                 <Route component={NotFoundPage} />
               </Switch>
             </Router>

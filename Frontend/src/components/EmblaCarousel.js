@@ -6,7 +6,7 @@ import {
   PrevButton,
   usePrevNextButtons
 } from './EmblaCarouselArrowButtons'
-import { CardMedia, Stack } from '@mui/material'
+import { Stack } from '@mui/material'
 import Slides from './Slides'
 
 const EmblaCarousel = (props) => {

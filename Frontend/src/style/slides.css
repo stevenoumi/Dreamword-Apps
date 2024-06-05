@@ -20,6 +20,17 @@
  
 }
 
+.slide-snackbar {
+    position: absolute;
+    top: 50vh;
+    right: 50vw;
+    color: #DCC097 !important;
+    font-size: 20px;
+    font-family: 'Times New Roman';
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+    
 .slide-advertisement-container {
     width: 50%;
     display: flex;
