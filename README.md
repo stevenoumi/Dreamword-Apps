@@ -1,17 +1,6 @@
-# DreamWorld-Apps
+# Dreamworld-Apps
 
-DreamWorld-Apps est une application de commerce électronique complète avec un frontend et un backend. Cette application permet aux utilisateurs de parcourir, rechercher et acheter des produits, de gérer leurs commandes, de laisser des avis, et bien plus encore.
-
-## Table des matières
-
-- [Prérequis](#prérequis)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Utilisation](#utilisation)
-- [Structure du Projet](#structure-du-projet)
-- [Fonctionnalités](#fonctionnalités)
-- [Contribuer](#contribuer)
-- [Licence](#licence)
+Dreamworld-Apps est une application de commerce électronique destinée aux 10 restaurants Dreamworld Burger en France. Cette application a pour objectif de faciliter les commandes de produits tels que les burgers, boissons, desserts et frites. En outre, elle permet non seulement la gestion du magasin par les administrateurs, mais aussi la gestion des achats, la promotion de l'entreprise et les échanges au sein de la communauté.
 
 ## Prérequis
 
@@ -48,44 +37,6 @@ Accédez à l'application frontend à l'adresse : `http://localhost:3000`
 
 Accédez à phpMyAdmin à l'adresse : `http://localhost:8080` (utilisez les identifiants configurés dans `docker-compose.yml`)
 
-## Structure du Projet
-
-La structure du projet est la suivante :
-
-```
-DreamWorld-Apps/
-├── backend/
-│   ├── app.js
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── readme.md
-│   ├── server.js
-│   ├── images/
-│   └── src/
-│       ├── config/
-│       ├── controllers/
-│       ├── middleware/
-│       └── routes/
-├── dataBase/
-│   ├── create_table.sql
-│   └── insertions.sql
-├── docker/
-│   ├── .dockerignore
-│   ├── build.cmd
-│   ├── docker-compose.yml
-│   └── Dockerfile
-├── frontend/
-│   ├── public/
-│   └── src/
-│       ├── components/
-│       ├── context/
-│       ├── datas/
-│       ├── pages/
-│       └── style/
-└── launch.sh
-└── README.md
-```
-
 ## Fonctionnalités
 
 - **Compte personnel** : Inscription, connexion et gestion du compte utilisateur.
@@ -114,4 +65,4 @@ Les contributions sont les bienvenues ! Veuillez ouvrir une issue pour discuter 
 Distribué sous la licence MIT. Voir `LICENSE` pour plus d'informations.
 ```
 
-Ce README couvre les informations de base nécessaires pour comprendre, configurer et exécuter votre projet. N'oubliez pas de remplacer `https://github.com/votre-utilisateur/DreamWorld-Apps.git` par l'URL réelle de votre dépôt GitHub.
+Ce README offre une introduction claire au projet Dreamworld-Apps, fournissant des instructions pour l'installation, l'utilisation et la contribution au projet.
