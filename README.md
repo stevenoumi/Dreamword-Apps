@@ -1,6 +1,3 @@
-Voici un exemple de README.md pour votre projet DreamWorld-Apps. Ce fichier README est conçu pour être utilisé sur GitHub et fournit des informations essentielles sur le projet, comment le configurer et l'exécuter, ainsi que quelques détails supplémentaires.
-
-```markdown
 # DreamWorld-Apps
 
 DreamWorld-Apps est une application de commerce électronique complète avec un frontend et un backend. Cette application permet aux utilisateurs de parcourir, rechercher et acheter des produits, de gérer leurs commandes, de laisser des avis, et bien plus encore.
